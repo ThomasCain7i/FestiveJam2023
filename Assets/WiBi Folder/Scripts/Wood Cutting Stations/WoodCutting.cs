@@ -7,6 +7,7 @@ public class WoodCutting : MonoBehaviour
     [Header("GameObjects & References")]
     [SerializeField] GameObject player;
     [SerializeField] GameObject wood;
+    [SerializeField] GameObject canvas;
     public bool beginCutting;
     [SerializeField] float dist;
     [SerializeField] bool playerHasWood;
@@ -18,10 +19,19 @@ public class WoodCutting : MonoBehaviour
     private void Update()
     {
         dist = Vector3.Distance(player.transform.position, transform.position);
-        if (dist <= 3 && playerHasWood && Input.GetKeyDown(KeyCode.E))
+        if(dist <= 3)
         {
-            beginCutting = true;
+            canvas.SetActive(true);
+            if (playerHasWood && Input.GetKeyDown(KeyCode.E))
+            {
+                beginCutting = true;
+            }
         }
+        else
+        {
+            canvas.SetActive(false);
+        }
+        
         CutWood();
     }
 
