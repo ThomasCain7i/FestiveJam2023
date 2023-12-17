@@ -15,6 +15,8 @@ public class WoodCut : MonoBehaviour
             wood.transform.rotation = spawnBack.transform.rotation;
             wood.SetActive(false);
             station.GetComponent<WoodCutting>().beginCutting = false;
+            // code to set playerHasWood bool false within the inventory script,
+            // Code to set playerHasPlanks bool true within the inventory script.
         }
     }
 }
