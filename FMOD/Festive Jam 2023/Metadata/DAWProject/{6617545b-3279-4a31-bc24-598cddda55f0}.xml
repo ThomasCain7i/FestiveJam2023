@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DAWProject" id="{6617545b-3279-4a31-bc24-598cddda55f0}">
+		<property name="assetPath">
+			<value>Festive Jam 2023.rpp.link/</value>
+		</property>
+		<property name="dawProjectPath">
+			<value>D:/Sound design/reaper projects/Festive Jam 2023/Festive Jam 2023/Festive Jam 2023.rpp</value>
+		</property>
+		<property name="renderedAssetsPath">
+			<value>Rendered assets</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{04b9b38e-7048-41fe-a026-1b0a6b588e4c}</destination>
+		</relationship>
+	</object>
+</objects>
