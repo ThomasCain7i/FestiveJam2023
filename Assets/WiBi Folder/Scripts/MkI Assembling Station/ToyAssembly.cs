@@ -9,6 +9,7 @@ public class ToyAssembly : MonoBehaviour
     public bool assemble;
     public int toySelected;
 
+    [SerializeField] GameObject trainParent;
     [SerializeField] int trainArrayPos;
     [SerializeField] GameObject[] train;
 
@@ -53,12 +54,13 @@ public class ToyAssembly : MonoBehaviour
                 arrayPos = 0;
                 ShuffleArray();
             }
-            if (trainArrayPos >= 6)
+            if (trainArrayPos >= train.Length)
             {
                 trainArrayPos = 0;
                 ShuffleTrain();
                 assemble = false;
                 canvas.SetActive(false);
+                trainParent.GetComponent<ToyDone>().toyDone = true;
             }
         }
     }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Reach
+  - Undefined
+  - Toy
   layers:
   - Default
   - TransparentFX
