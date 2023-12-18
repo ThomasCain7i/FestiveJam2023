@@ -15,6 +15,7 @@ public class WoodCutting : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        canvas.SetActive(false);
     }
     private void Update()
     {
