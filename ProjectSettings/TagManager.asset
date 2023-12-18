@@ -7,6 +7,7 @@ TagManager:
   - Reach
   - Undefined
   - Toy
+  - ISlider
   layers:
   - Default
   - TransparentFX
