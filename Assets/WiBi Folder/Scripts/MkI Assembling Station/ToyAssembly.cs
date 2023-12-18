@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ToyAssembly : MonoBehaviour
 {
+    [SerializeField] Slider assembleSlider;
     [SerializeField] GameObject canvas;
+
     public bool assemble;
     public int toySelected;
 
@@ -43,24 +46,31 @@ public class ToyAssembly : MonoBehaviour
     void BuildTrain()
     {
         display.text = keyToBePressed.ToString();
-        if (Input.GetKeyDown(keyToBePressed))
+        if(assembleSlider.value <= 10 && assembleSlider.value >= -10)
         {
-            keyToBePressed = codes[arrayPos];
-            arrayPos += 1;
-            train[trainArrayPos].SetActive(true);
-            trainArrayPos += 1;
-            if (arrayPos >= 4)
+            if (Input.GetKeyDown(keyToBePressed))
             {
-                arrayPos = 0;
-                ShuffleArray();
+                keyToBePressed = codes[arrayPos];
+                arrayPos += 1;
+                train[trainArrayPos].SetActive(true);
+                trainArrayPos += 1;
+                if (arrayPos >= 4)
+                {
+                    arrayPos = 0;
+                    ShuffleArray();
+                }
+                if (trainArrayPos >= train.Length)
+                {
+                    trainArrayPos = 0;
+                    ShuffleTrain();
+                    assemble = false;
+                    canvas.SetActive(false);
+                    trainParent.GetComponent<ToyDone>().toyDone = true;
+                }
             }
-            if (trainArrayPos >= train.Length)
+            else
             {
-                trainArrayPos = 0;
-                ShuffleTrain();
-                assemble = false;
-                canvas.SetActive(false);
-                trainParent.GetComponent<ToyDone>().toyDone = true;
+                // Play failure. 
             }
         }
     }
