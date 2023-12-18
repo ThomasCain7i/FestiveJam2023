@@ -7,18 +7,14 @@ using UnityEngine.UI;
 public class ButtonSlider : MonoBehaviour
 {
     [SerializeField] Slider slider;
-    [SerializeField] float speed;
+    public float speed;
     [SerializeField] bool moveLeft;
     [SerializeField] bool moveRight;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
+        SpeedDecreaser();
         SliderMove();
         SliderSwapDirection();
     }
@@ -33,8 +29,6 @@ public class ButtonSlider : MonoBehaviour
             slider.value -= 5 * speed * Time.deltaTime;
         }
     }
-
-
     void SliderSwapDirection()
     {
         if(slider.value == slider.minValue)
@@ -46,6 +40,13 @@ public class ButtonSlider : MonoBehaviour
         {
             moveRight = true;
             moveLeft = false;
+        }
+    }
+    void SpeedDecreaser()
+    {
+        if(speed >= 25)
+        {
+            speed -= 3f * Time.deltaTime;
         }
     }
 }

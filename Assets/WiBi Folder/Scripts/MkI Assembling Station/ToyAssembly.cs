@@ -54,6 +54,7 @@ public class ToyAssembly : MonoBehaviour
                 arrayPos += 1;
                 train[trainArrayPos].SetActive(true);
                 trainArrayPos += 1;
+                canvas.GetComponent<ButtonSlider>().speed = 100;
                 if (arrayPos >= 4)
                 {
                     arrayPos = 0;
@@ -68,9 +69,12 @@ public class ToyAssembly : MonoBehaviour
                     trainParent.GetComponent<ToyDone>().toyDone = true;
                 }
             }
-            else
+        }
+        else if (assembleSlider.value > 10 || assembleSlider.value < -10)
+        {
+            if (Input.GetKeyDown(keyToBePressed))
             {
-                // Play failure. 
+                Debug.Log("Failed");
             }
         }
     }
