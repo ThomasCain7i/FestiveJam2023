@@ -8,11 +8,14 @@ TagManager:
   - Undefined
   - Toy
   - ISlider
+  - Wood
+  - Nail
+  - Blueprint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Blueprint
   - Water
   - UI
   - Ground
