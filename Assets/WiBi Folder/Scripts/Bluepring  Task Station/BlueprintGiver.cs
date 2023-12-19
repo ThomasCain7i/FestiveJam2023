@@ -8,14 +8,6 @@ using UnityEngine;
 public class BlueprintGiver : MonoBehaviour
 {
     [SerializeField] GameObject[] blueprint;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            blueprint[0].SetActive(false);
-            blueprint[1].SetActive(false);
-        }
-    }
     public void Blueprints(int b)
     {
         if(b == 250)
