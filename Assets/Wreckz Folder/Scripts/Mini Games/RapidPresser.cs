@@ -55,7 +55,7 @@ public class RapidPresser : MonoBehaviour
                     WinMiniGame();
                 }
 
-                if (currentNumber < numToWin || timer <= 0)
+                if (currentNumber < numToWin && timer <= 0)
                 {
                     LoseMiniGame();
                 }
@@ -68,21 +68,32 @@ public class RapidPresser : MonoBehaviour
         timerHasStarted = true;
         gameIsPlaying = true;
         scoreText.gameObject.SetActive(true);
+        Debug.Log("Starting Nail Minigame");
     }
 
     void WinMiniGame()
     {
         gameHasStarted = false;
+        timerHasStarted = false;
+        gameIsPlaying = false;
         currentNumber = 0;
         timer = 5;
         scoreText.gameObject.SetActive(false);
+        interactText.SetActive(true);
+        instructionText.SetActive(false);
+        Debug.Log("Won Nail Minigame");
     }
 
     void LoseMiniGame()
     {
         gameHasStarted = false;
+        timerHasStarted = false;
+        gameIsPlaying = false;
         currentNumber = 0;
         timer = 5;
         scoreText.gameObject.SetActive(false);
+        interactText.SetActive(true);
+        instructionText.SetActive(false);
+        Debug.Log("Lost Nail Minigame");
     }
 }
