@@ -6,18 +6,21 @@ public class RapidPresser : MonoBehaviour
     [Header("Mini Game Specific Variables")]
     [SerializeField] int numToWin, currentNumber;
     [SerializeField] float timer;
-    public bool timerHasStarted, gameHasStarted;
+    public bool timerHasStarted, gameHasStarted, gameIsPlaying;
 
     [Header("Game Manager")]
-    [SerializeField] Gamemanager gamemanager;
+    [SerializeField] MinigameManager minigameManager;
 
     [Header("Canvas")]
     [SerializeField] GameObject canvas;
+    [SerializeField] GameObject interactText, instructionText;
+    [SerializeField] TextMeshProUGUI scoreText; // Assuming scoreText is a TextMeshPro component
 
     // Start is called before the first frame update
     void Start()
     {
         canvas.SetActive(false);
+        scoreText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,12 +28,18 @@ public class RapidPresser : MonoBehaviour
     {
         if (gameHasStarted)
         {
-            canvas.SetActive (true);
+            canvas.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            interactText.SetActive(false);
+            instructionText.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && gameIsPlaying == false)
             {
                 StartMiniGame();
             }
+
+            // Set the text of the scoreText to the currentNumber
+            scoreText.text = currentNumber.ToString();
         }
 
         if (timerHasStarted)
@@ -46,7 +55,7 @@ public class RapidPresser : MonoBehaviour
                     WinMiniGame();
                 }
 
-                if (currentNumber < numToWin | timer <= 0)
+                if (currentNumber < numToWin || timer <= 0)
                 {
                     LoseMiniGame();
                 }
@@ -57,15 +66,23 @@ public class RapidPresser : MonoBehaviour
     void StartMiniGame()
     {
         timerHasStarted = true;
+        gameIsPlaying = true;
+        scoreText.gameObject.SetActive(true);
     }
-    
+
     void WinMiniGame()
     {
-
+        gameHasStarted = false;
+        currentNumber = 0;
+        timer = 5;
+        scoreText.gameObject.SetActive(false);
     }
 
     void LoseMiniGame()
     {
-
+        gameHasStarted = false;
+        currentNumber = 0;
+        timer = 5;
+        scoreText.gameObject.SetActive(false);
     }
 }

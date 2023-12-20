@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
-    public bool isPaused, gameHasStarted;
+    public bool isPaused;
 
     [SerializeField] PlayerMovement playerMovement;
 
@@ -17,9 +17,6 @@ public class Gamemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameHasStarted)
-        {
-            playerMovement.moveSpeed = 0;
-        }
+
     }
 }
