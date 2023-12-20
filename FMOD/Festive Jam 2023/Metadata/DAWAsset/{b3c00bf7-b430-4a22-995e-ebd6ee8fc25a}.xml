@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DAWAsset" id="{b3c00bf7-b430-4a22-995e-ebd6ee8fc25a}">
+		<property name="assetPath">
+			<value>Festive Jam 2023.rpp.link/UI pop-002.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.12224489795918367</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{04b9b38e-7048-41fe-a026-1b0a6b588e4c}</destination>
+		</relationship>
+		<relationship name="project">
+			<destination>{6617545b-3279-4a31-bc24-598cddda55f0}</destination>
+		</relationship>
+	</object>
+</objects>

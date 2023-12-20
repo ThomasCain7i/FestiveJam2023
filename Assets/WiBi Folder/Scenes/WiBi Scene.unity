@@ -1972,6 +1972,7 @@ MonoBehaviour:
   distanceNailStation: 0
   distanceToyAssembler: 0
   distanceWrapStation: 0
+  howFar: 0
   canvasWoodStation: {fileID: 653318197}
   canvasNailStation: {fileID: 1878387005}
   canvasToyAssembler: {fileID: 19166087}
@@ -3116,14 +3117,18 @@ MonoBehaviour:
   numToWin: 0
   currentNumber: 0
   timer: 0
+  winTimer: 0
   timerHasStarted: 0
   gameHasStarted: 0
   gameIsPlaying: 0
+  gameIsWon: 0
   minigameManager: {fileID: 0}
   canvas: {fileID: 0}
   interactText: {fileID: 0}
   instructionText: {fileID: 0}
+  winText: {fileID: 0}
   scoreText: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &1901082649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3543,9 +3548,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2466682059976814357, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
+    - target: {fileID: 2466682059932553720, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -586
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466682059932553723, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466682059976814357, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2466682060033515544, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
       propertyPath: m_Pivot.x
@@ -3639,6 +3652,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2466682060484558519, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -696
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466682060688385620, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -586
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466682060688385623, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9cfd2d218066cb4abbd4f11e24b727c, type: 3}
 --- !u!1001 &3207911008024067062
@@ -3648,6 +3673,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 832981511, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
+      propertyPath: blueprint.Array.data[0]
+      value: 
+      objectReference: {fileID: 166046629}
+    - target: {fileID: 832981511, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
+      propertyPath: blueprint.Array.data[1]
+      value: 
+      objectReference: {fileID: 1557568521}
     - target: {fileID: 3207911006952903342, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
       propertyPath: blueprint.Array.data[0]
       value: 
@@ -3720,6 +3753,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blueprint / Task Station
       objectReference: {fileID: 0}
+    - target: {fileID: 6837156831208779770, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
+      propertyPath: toyAssembler
+      value: 
+      objectReference: {fileID: 92164305}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
 --- !u!1001 &3972442859194689506
