@@ -514,7 +514,7 @@ MonoBehaviour:
   canvas: {fileID: 7500939556790889067}
   assemble: 0
   toyId: 0
-  toyKing: {fileID: 0}
+  toyKing: {fileID: 7045047145756929907}
   toyParent: {fileID: 0}
   toyParentChildCount: 0
   toyArrayPos: 0
