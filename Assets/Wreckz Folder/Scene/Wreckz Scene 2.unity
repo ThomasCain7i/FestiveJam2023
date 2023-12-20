@@ -2508,7 +2508,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensX: 400
+  savedSensX: 0
   sensY: 400
+  savedSensY: 0
   orientation: {fileID: 2137759484}
 --- !u!81 &789958808
 AudioListener:
@@ -6608,7 +6610,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click the "mole" when it appears
+  m_text: 'Click the "mole" when it appears
+
+    Press LMB to start'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6930,12 +6934,13 @@ MonoBehaviour:
   gameIsPlaying: 0
   gameIsWon: 0
   timeBetweenMoles: 2
-  normalTimeBetweenMoles: 3
+  normalTimeBetweenMoles: 2
   timeLeft: 30
   timeLeftNormal: 30
   gameIsWonTimer: 5
   currentScore: 0
-  maxScore: 5
+  maxScore: 10
+  cam: {fileID: 789958807}
 --- !u!114 &265983475560152266
 MonoBehaviour:
   m_ObjectHideFlags: 0
