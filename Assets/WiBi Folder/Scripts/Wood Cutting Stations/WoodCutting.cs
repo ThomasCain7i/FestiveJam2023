@@ -22,25 +22,6 @@ public class WoodCutting : MonoBehaviour
     }
     private void Update()
     {
-        // Constantly grabs the distance between the player and this object
-        dist = Vector3.Distance(player.transform.position, transform.position);
-        // Checks to make sure the player is within range
-        if(dist <= 3)
-        {
-            // Sets the canvas to be active
-            canvas.SetActive(true);
-            // Checks to make sure the player has wood and has presse E
-            if (playerHasWood && Input.GetKeyDown(KeyCode.E))
-            {
-                // Sets begins cutting bool to be true
-                beginCutting = true;
-            }
-        }
-        else
-        {
-            // Sets canvas to be inactive if the player is not within distance
-            canvas.SetActive(false);
-        }
         // Calls the cutting wood function
         CutWood();
     }

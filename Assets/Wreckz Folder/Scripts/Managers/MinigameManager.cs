@@ -11,20 +11,26 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject player;
 
     [Header("MiniGames")]
-    [SerializeField] GameObject toyAssembler;
+    [SerializeField] GameObject woodStation;
     [SerializeField] GameObject nailStation;
+    [SerializeField] GameObject toyAssembler;
+    [SerializeField] GameObject wrapStation;
 
     [Header("Distance")]
-    [SerializeField] float distanceToyAssembler;
+    [SerializeField] float distanceWoodStation;
     [SerializeField] float distanceNailStation;
+    [SerializeField] float distanceToyAssembler;
+    [SerializeField] float distanceWrapStation;
 
     [Header("Canavs")]
-    [SerializeField] GameObject canvasToyAssembler;
+    [SerializeField] GameObject canvasWoodStation;
     [SerializeField] GameObject canvasNailStation;
+    [SerializeField] GameObject canvasToyAssembler;
+    [SerializeField] GameObject canvasWrapStation;
 
 
     [Header("Bool & Numbers")]
-    [SerializeField] int toySelected;
+    [SerializeField] int toyId;
     [SerializeField] bool playerHasTheMaterials;
 
     // Start is called before the first frame update
@@ -40,6 +46,24 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        distanceWoodStation = Vector3.Distance(woodStation.transform.position, player.transform.position);
+
+        if (distanceWoodStation <= 3)
+        {
+            // Sets canvas to be active, if player is within range
+            canvasWoodStation.SetActive(true);
+            // Allows the player to interact if the press E and have the materials.
+            if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+            {
+                woodStation.GetComponent<WoodCutting>().beginCutting = true;
+            }
+        }
+        else
+        {
+            // Sets the canvas to be in active if the player is anything otehr than within range.
+            canvasWoodStation.SetActive(false);
+        }
+
         // Constantly getting the distance between, the toyAssembler gameObject and the player
         distanceToyAssembler = Vector3.Distance(toyAssembler.transform.position, player.transform.position);
 
@@ -60,7 +84,7 @@ public class MinigameManager : MonoBehaviour
             canvasToyAssembler.SetActive(false);
         }
 
-        distanceNailStation = Vector3.Distance(nailStation.transform.position, player.transform.position);
+        //distanceNailStation = Vector3.Distance(nailStation.transform.position, player.transform.position);
 
         if (distanceNailStation <= 3)
         {
@@ -78,5 +102,26 @@ public class MinigameManager : MonoBehaviour
             // Sets the canvas to be in active if the player is anything otehr than within range.
             canvasNailStation.SetActive(false);
         }
+
+        distanceWrapStation = Vector3.Distance(wrapStation.transform.position, player.transform.position);
+
+        if (distanceWrapStation <= 3)
+        {
+            // Sets canvas to be active, if player is within range
+            canvasWrapStation.SetActive(true);
+            // Allows the player to interact if the press E and have the materials.
+            if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+            {
+                // Sets bool to be true if the player has interacted with the table.
+                wrapStation.GetComponent<WrappingStation>().BeginWrapping();
+            }
+        }
+        else
+        {
+            // Sets the canvas to be in active if the player is anything otehr than within range.
+            canvasWrapStation.SetActive(false);
+        }
+
+        
     }
 }
