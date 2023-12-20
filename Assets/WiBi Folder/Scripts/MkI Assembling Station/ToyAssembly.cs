@@ -4,46 +4,72 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+// This script was created by Liam Wilson
+// For the purpose of actually assembling the toy, selected.
+
 public class ToyAssembly : MonoBehaviour
 {
+    [Header("Script Variables")]
     [SerializeField] Slider assembleSlider;
     [SerializeField] GameObject canvas;
-
     public bool assemble;
-    public int toySelected;
+    public int toyId;
 
-    [SerializeField] GameObject trainParent;
-    [SerializeField] int trainArrayPos;
-    [SerializeField] GameObject[] train;
+    [Header("Toy Variables")]
+    [SerializeField] GameObject toyKing;
+    [SerializeField] GameObject toyParent;
+    [SerializeField] int toyParentChildCount;
+    [SerializeField] int toyArrayPos;
+    [SerializeField] GameObject[] toyChildren;
 
-
+    [Header("Input Variables")]
     [SerializeField] int arrayPos;
-    [SerializeField] int[] keys;
     [SerializeField] KeyCode[] codes;
     [SerializeField] KeyCode keyToBePressed;
     [SerializeField] TMP_Text display;
     // Start is called before the first frame update
     void Start()
     {
-        keyToBePressed = KeyCode.Q;
-        ShuffleArray(); ShuffleTrain();
+        // Setting the key pressed to be R
+        keyToBePressed = KeyCode.R;
+        // Shuffling Arrays
+        ShuffleArray(); ShuffleToy();
+        // Sets canvas to be inactive.
         canvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If ready to assemble
         if (assemble)
         {
+            // Set slider canvas to be active
             canvas.SetActive(true);
-            if (toySelected == 0)
+            // Sets to parent to be the correct object from the king's children
+            // based on the id collected from the blueprint object
+            toyParent = toyKing.transform.GetChild(toyId).gameObject;
+            // Grabs the total child count of the newly assigned toyParent
+            toyParentChildCount = toyParent.transform.childCount;
+            // Extends the toyChildren object array according to the total
+            // amount of children the new toyParent has.
+            toyChildren = new GameObject[toyParentChildCount];
+            // Loops for the total amount of children the newly assigned
+            // toyParent has, in order to assign all toyParent's children to the toyChildren
+            // array for assembly once the player has collected enough materials
+            for (int i = 0; i < toyParentChildCount; i++)
             {
-                BuildTrain();
+                // Code to assign children to object arrat
+                toyChildren[i] = toyParent.transform.GetChild(i).gameObject;
             }
+
+            // Calling function to build the toy
+            BuildToy();
         }
     }
 
-    void BuildTrain()
+    // Function to be called to build the train
+    void BuildToy()
     {
         display.text = keyToBePressed.ToString();
         if(assembleSlider.value <= 10 && assembleSlider.value >= -10)
@@ -52,21 +78,21 @@ public class ToyAssembly : MonoBehaviour
             {
                 keyToBePressed = codes[arrayPos];
                 arrayPos += 1;
-                train[trainArrayPos].SetActive(true);
-                trainArrayPos += 1;
+                toyChildren[toyArrayPos].SetActive(true);
+                toyArrayPos += 1;
                 canvas.GetComponent<ButtonSlider>().speed = 100;
                 if (arrayPos >= 4)
                 {
                     arrayPos = 0;
                     ShuffleArray();
                 }
-                if (trainArrayPos >= train.Length)
+                if (toyArrayPos >= toyChildren.Length)
                 {
-                    trainArrayPos = 0;
-                    ShuffleTrain();
+                    toyArrayPos = 0;
+                    ShuffleToy();
                     assemble = false;
                     canvas.SetActive(false);
-                    trainParent.GetComponent<ToyDone>().toyDone = true;
+                    toyParent.GetComponent<ToyDone>().toyDone = true;
                 }
             }
         }
@@ -79,6 +105,7 @@ public class ToyAssembly : MonoBehaviour
         }
     }
 
+    // Function to shuffle the input array for more randomness of keys
     void ShuffleArray()
     {
         for (int t = 0; t < codes.Length; t++)
@@ -89,14 +116,16 @@ public class ToyAssembly : MonoBehaviour
             codes[r] = tmp;
         }
     }
-    void ShuffleTrain()
+
+    // Function to shuffle the toy array for more randomness of construction
+    void ShuffleToy()
     {
-        for (int t = 0; t < train.Length; t++)
+        for (int t = 0; t < toyChildren.Length; t++)
         {
-            GameObject tmp = train[t];
-            int r = Random.Range(t, keys.Length);
-            train[t] = train[r];
-            train[r] = tmp;
+            GameObject tmp = toyChildren[t];
+            int r = Random.Range(t, toyChildren.Length);
+            toyChildren[t] = toyChildren[r];
+            toyChildren[r] = tmp;
         }
     }
 }

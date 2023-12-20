@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3207911006952903331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.492, y: -0.227, z: -0.848}
+  m_LocalPosition: {x: 0.49, y: -0.227, z: -0.83}
   m_LocalScale: {x: 0.05, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -469,7 +469,6 @@ GameObject:
   - component: {fileID: 3207911007362782509}
   - component: {fileID: 3207911007362782508}
   - component: {fileID: 3207911007362782511}
-  - component: {fileID: 3207911007362782506}
   - component: {fileID: 3207911007362782507}
   m_Layer: 3
   m_Name: Build Xbox
@@ -556,19 +555,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3207911007362782506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3207911007362782497}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64852ec261bfdbe458405de1ff648c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueprint: []
 --- !u!114 &3207911007362782507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,7 +871,6 @@ GameObject:
   - component: {fileID: 3207911008147617206}
   - component: {fileID: 3207911008147617225}
   - component: {fileID: 3207911008147617224}
-  - component: {fileID: 3207911008147617207}
   - component: {fileID: 3207911008147617204}
   m_Layer: 3
   m_Name: Build Car
@@ -972,19 +957,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3207911008147617207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3207911008147617226}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64852ec261bfdbe458405de1ff648c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueprint: []
 --- !u!114 &3207911008147617204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,7 +1079,6 @@ GameObject:
   - component: {fileID: 3207911008331546986}
   - component: {fileID: 3207911008331546989}
   - component: {fileID: 3207911008331546988}
-  - component: {fileID: 3207911008331546987}
   - component: {fileID: 3207911008331546984}
   m_Layer: 3
   m_Name: Build Train
@@ -1194,21 +1165,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3207911008331546987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3207911008331546990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64852ec261bfdbe458405de1ff648c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueprint:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &3207911008331546984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1234,7 +1190,6 @@ GameObject:
   - component: {fileID: 3207911008694269200}
   - component: {fileID: 3207911008694269203}
   - component: {fileID: 3207911008694269202}
-  - component: {fileID: 3207911008694269201}
   - component: {fileID: 3207911008694269214}
   m_Layer: 3
   m_Name: Build Bear
@@ -1321,21 +1276,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3207911008694269201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3207911008694269204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64852ec261bfdbe458405de1ff648c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueprint:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &3207911008694269214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,7 +1409,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6837156831177999863}
-  m_LocalRotation: {x: -0, y: -0.14871061, z: -0, w: 0.9888808}
+  m_LocalRotation: {x: 0, y: -0.14870691, z: 0, w: 0.98888135}
   m_LocalPosition: {x: -6.2632227, y: 0.987, z: -3.4230301}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1497,6 +1437,7 @@ GameObject:
   - component: {fileID: 6837156831208779760}
   - component: {fileID: 6837156831208779775}
   - component: {fileID: 6837156831208779770}
+  - component: {fileID: 832981511}
   m_Layer: 0
   m_Name: Blueprint Station
   m_TagString: Untagged
@@ -1511,14 +1452,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6837156831208779773}
-  m_LocalRotation: {x: -0, y: 0.71390647, z: -0, w: 0.70024115}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.011988163, y: -0.547, z: -1.7759234}
   m_LocalScale: {x: 2.2564137, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6837156831177999848}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 91.107, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &6837156831208779761
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1594,8 +1535,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668cebde85b18da41b63f3c068360dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alreadyGotBlueprint: 0
   cam: {fileID: 0}
   blueprint:
     serializedVersion: 2
     m_Bits: 8
+  alreadyGotBlueprint: 0
+--- !u!114 &832981511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837156831208779773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64852ec261bfdbe458405de1ff648c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueprint:
+  - {fileID: 0}
+  - {fileID: 0}

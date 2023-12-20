@@ -7,11 +7,14 @@ using UnityEngine;
 
 public class BlueprintGiver : MonoBehaviour
 {
+    [Header("Blueprint Canvas Objects")]
     [SerializeField] GameObject[] blueprint;
+    // Function called from another script which passes in the blueprint id. 
     public void Blueprints(int b)
     {
         if(b == 250)
         {
+            // Code to randomly select a blueprint if players wish.
             int r = Random.Range(0, blueprint.Length);
             blueprint[r].SetActive(true);
         }
@@ -26,6 +29,17 @@ public class BlueprintGiver : MonoBehaviour
             // Give Bear
             Debug.Log("Bear Blueprint Given");
             blueprint[b].SetActive(true);
+        }
+    }
+
+    // Function to called to reset blueprints
+    public void DoneBlueprint()
+    {
+        int a = 0;
+        for (int i = 0; i < blueprint.Length; i++)
+        {
+            blueprint[a].SetActive(false);
+            a += 1;
         }
     }
 }
