@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;  // Import TextMeshPro namespace
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,8 @@ public class WackaMole : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] GameObject interactText;
-    [SerializeField] GameObject instructionText, winText, timerText;
+    [SerializeField] GameObject instructionText, winText;
+    [SerializeField] TextMeshProUGUI timerTextTMP;  // Change the variable type to TextMeshProUGUI
 
     [Header("Bools")]
     public bool gameHasStarted;
@@ -37,11 +39,12 @@ public class WackaMole : MonoBehaviour
             interactText.SetActive(false);
             cam.sensX = 0;
             cam.sensY = 0;
+            timerTextTMP.gameObject.SetActive(true);
+
             if (!gameIsPlaying)
             {
                 instructionText.SetActive(true);
             }
-
 
             // Check for the E key press to start the game
             if (Input.GetKeyDown(KeyCode.Mouse0) && !gameIsPlaying)
@@ -65,7 +68,8 @@ public class WackaMole : MonoBehaviour
                     LoseMiniGame();
                 }
 
-                timerText.SetActive(true);
+                // Update timer text using TextMeshProUGUI
+                timerTextTMP.text = "Time: " + Mathf.RoundToInt(timeLeft).ToString();
 
                 // Lock and show the cursor
                 Cursor.lockState = CursorLockMode.Confined;
@@ -156,7 +160,7 @@ public class WackaMole : MonoBehaviour
         left.SetActive(false);
         right.SetActive(false);
 
-        timerText.gameObject.SetActive(false); // Hide the timer text
+        timerTextTMP.gameObject.SetActive(false); // Hide the timer text
         instructionText.SetActive(false);
 
         // Unlock and hide the cursor
@@ -193,7 +197,7 @@ public class WackaMole : MonoBehaviour
         gameIsPlaying = false;
         currentScore = 0;
         timeLeft = timeLeftNormal;
-        timerText.SetActive(false); // Hide the timer text
+        timerTextTMP.gameObject.SetActive(false); // Hide the timer text
         interactText.SetActive(true);
         instructionText.SetActive(false);
         Debug.Log("Lost Nail Minigame");

@@ -6929,7 +6929,7 @@ MonoBehaviour:
   interactText: {fileID: 265983475560152268}
   instructionText: {fileID: 265983475149415546}
   winText: {fileID: 1044690968}
-  timerText: {fileID: 1403319548}
+  timerTextTMP: {fileID: 1403319538}
   gameHasStarted: 0
   gameIsPlaying: 0
   gameIsWon: 0
