@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{806316bb-ab8b-4d8d-b2b6-32725a68c7cd}">
 		<property name="name">
-			<value>UI positive  chime</value>
+			<value>UI positive chime</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
