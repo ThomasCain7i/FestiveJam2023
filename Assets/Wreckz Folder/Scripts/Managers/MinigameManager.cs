@@ -46,82 +46,93 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceWoodStation = Vector3.Distance(woodStation.transform.position, player.transform.position);
-
-        if (distanceWoodStation <= 3)
+        if (woodStation != null)
         {
-            // Sets canvas to be active, if player is within range
-            canvasWoodStation.SetActive(true);
-            // Allows the player to interact if the press E and have the materials.
-            if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+            distanceWoodStation = Vector3.Distance(woodStation.transform.position, player.transform.position);
+
+            if (distanceWoodStation <= 3)
             {
-                woodStation.GetComponent<WoodCutting>().beginCutting = true;
+                // Sets canvas to be active, if player is within range
+                canvasWoodStation.SetActive(true);
+                // Allows the player to interact if the press E and have the materials.
+                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                {
+                    woodStation.GetComponent<WoodCutting>().beginCutting = true;
+                }
+            }
+            else
+            {
+                // Sets the canvas to be in active if the player is anything otehr than within range.
+                canvasWoodStation.SetActive(false);
             }
         }
-        else
-        {
-            // Sets the canvas to be in active if the player is anything otehr than within range.
-            canvasWoodStation.SetActive(false);
-        }
 
-        // Constantly getting the distance between, the toyAssembler gameObject and the player
-        distanceToyAssembler = Vector3.Distance(toyAssembler.transform.position, player.transform.position);
-
-        if (distanceToyAssembler <= 3)
+        if (toyAssembler != null)
         {
-            // Sets canvas to be active, if player is within range
-            canvasToyAssembler.SetActive(true);
-            // Allows the player to interact if the press E and have the materials.
-            if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+            // Constantly getting the distance between, the toyAssembler gameObject and the player
+            distanceToyAssembler = Vector3.Distance(toyAssembler.transform.position, player.transform.position);
+
+            if (distanceToyAssembler <= 3)
             {
-                // Sets bool to be true if the player has interacted with the table.
-                toyAssembler.GetComponent<ToyAssembly>().assemble = true;
+                // Sets canvas to be active, if player is within range
+                canvasToyAssembler.SetActive(true);
+                // Allows the player to interact if the press E and have the materials.
+                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                {
+                    // Sets bool to be true if the player has interacted with the table.
+                    toyAssembler.GetComponent<ToyAssembly>().gameHasStarted = true;
+                }
+            }
+            else
+            {
+                // Sets the canvas to be in active if the player is anything otehr than within range.
+                canvasToyAssembler.SetActive(false);
             }
         }
-        else
-        {
-            // Sets the canvas to be in active if the player is anything otehr than within range.
-            canvasToyAssembler.SetActive(false);
-        }
 
-        //distanceNailStation = Vector3.Distance(nailStation.transform.position, player.transform.position);
-
-        if (distanceNailStation <= 3)
+        if (nailStation != null)
         {
-            // Sets canvas to be active, if player is within range
-            canvasNailStation.SetActive(true);
-            // Allows the player to interact if the press E and have the materials.
-            if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+            distanceNailStation = Vector3.Distance(nailStation.transform.position, player.transform.position);
+
+            if (distanceNailStation <= 3)
             {
-                // Sets bool to be true if the player has interacted with the table.
-                nailStation.GetComponent<RapidPresser>().gameHasStarted = true;
+                // Sets canvas to be active, if player is within range
+                canvasNailStation.SetActive(true);
+                // Allows the player to interact if the press E and have the materials.
+                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                {
+                    // Sets bool to be true if the player has interacted with the table.
+                    nailStation.GetComponent<RapidPresser>().gameHasStarted = true;
+                }
+            }
+            else
+            {
+                // Sets the canvas to be in active if the player is anything otehr than within range.
+                canvasNailStation.SetActive(false);
             }
         }
-        else
-        {
-            // Sets the canvas to be in active if the player is anything otehr than within range.
-            canvasNailStation.SetActive(false);
-        }
 
-        distanceWrapStation = Vector3.Distance(wrapStation.transform.position, player.transform.position);
-
-        if (distanceWrapStation <= 3)
+        if (wrapStation != null)
         {
-            // Sets canvas to be active, if player is within range
-            canvasWrapStation.SetActive(true);
-            // Allows the player to interact if the press E and have the materials.
-            if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+            distanceWrapStation = Vector3.Distance(wrapStation.transform.position, player.transform.position);
+
+            if (distanceWrapStation <= 3)
             {
-                // Sets bool to be true if the player has interacted with the table.
-                wrapStation.GetComponent<WrappingStation>().BeginWrapping();
+                // Sets canvas to be active, if player is within range
+                canvasWrapStation.SetActive(true);
+                // Allows the player to interact if the press E and have the materials.
+                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                {
+                    // Sets bool to be true if the player has interacted with the table.
+                    wrapStation.GetComponent<WrappingStation>().BeginWrapping();
+                }
+            }
+            else
+            {
+                // Sets the canvas to be in active if the player is anything otehr than within range.
+                canvasWrapStation.SetActive(false);
             }
         }
-        else
-        {
-            // Sets the canvas to be in active if the player is anything otehr than within range.
-            canvasWrapStation.SetActive(false);
-        }
-
         
     }
 }

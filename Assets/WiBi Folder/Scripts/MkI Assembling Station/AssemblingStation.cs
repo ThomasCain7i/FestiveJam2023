@@ -39,7 +39,7 @@ public class AssemblingStation : MonoBehaviour
             if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
             {
                 // Sets bool to be true if the player has interacted with the table.
-                toyAssembler.GetComponent<ToyAssembly>().assemble = true;
+                toyAssembler.GetComponent<ToyAssembly>().gameHasStarted = true;
             }
         }
         else

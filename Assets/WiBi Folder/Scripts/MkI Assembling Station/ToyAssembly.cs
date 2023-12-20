@@ -11,8 +11,8 @@ public class ToyAssembly : MonoBehaviour
 {
     [Header("Script Variables")]
     [SerializeField] Slider assembleSlider;
-    [SerializeField] GameObject canvas;
-    public bool assemble;
+    [SerializeField] GameObject canvas, interactionCanvas;
+    public bool gameHasStarted;
     public int toyId;
 
     [Header("Toy Variables")]
@@ -27,6 +27,8 @@ public class ToyAssembly : MonoBehaviour
     [SerializeField] KeyCode[] codes;
     [SerializeField] KeyCode keyToBePressed;
     [SerializeField] TMP_Text display;
+    [SerializeField] GameObject instrutionText, interactText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,10 +44,13 @@ public class ToyAssembly : MonoBehaviour
     void Update()
     {
         // If ready to assemble
-        if (assemble)
+        if (gameHasStarted)
         {
             // Set slider canvas to be active
-            canvas.SetActive(true);
+            interactionCanvas.SetActive(true);
+            instrutionText.SetActive(true);
+            interactText.SetActive(false);
+
             // Sets to parent to be the correct object from the king's children
             // based on the id collected from the blueprint object
             toyParent = toyKing.transform.GetChild(toyId).gameObject;
@@ -90,9 +95,11 @@ public class ToyAssembly : MonoBehaviour
                 {
                     toyArrayPos = 0;
                     ShuffleToy();
-                    assemble = false;
+                    gameHasStarted = false;
                     canvas.SetActive(false);
                     toyParent.GetComponent<ToyDone>().toyDone = true;
+                    interactText.SetActive(true);
+                    instrutionText.SetActive(false);
                 }
             }
         }
