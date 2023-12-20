@@ -2025,6 +2025,7 @@ GameObject:
   - component: {fileID: 950595751}
   - component: {fileID: 950595750}
   - component: {fileID: 950595749}
+  - component: {fileID: 950595753}
   m_Layer: 0
   m_Name: Assembling Station Canvas
   m_TagString: Untagged
@@ -2129,6 +2130,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &950595753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950595747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37db7130e6c817a40878b8951b391301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 7500939557905322137}
+  speed: 100
+  moveLeft: 1
+  moveRight: 0
 --- !u!1 &1105575842
 GameObject:
   m_ObjectHideFlags: 0
@@ -4352,22 +4369,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7500939556890321674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7500939556890321676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37db7130e6c817a40878b8951b391301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 7500939557905322137}
-  speed: 100
-  moveLeft: 1
-  moveRight: 0
 --- !u!223 &7500939556890321675
 Canvas:
   m_ObjectHideFlags: 0
@@ -4401,7 +4402,6 @@ GameObject:
   - component: {fileID: 7500939556890321675}
   - component: {fileID: 7500939556890321672}
   - component: {fileID: 7500939556890321673}
-  - component: {fileID: 7500939556890321674}
   m_Layer: 0
   m_Name: Interaction Canvas
   m_TagString: Untagged
