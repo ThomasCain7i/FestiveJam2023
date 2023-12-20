@@ -11,7 +11,6 @@ public class WrappingStation : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject playerCam;
     [SerializeField] GameObject stationCam;
-    [SerializeField] GameObject miniGame;
 
     [SerializeField] GameObject[] toys;
 
@@ -21,7 +20,6 @@ public class WrappingStation : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        miniGame.SetActive(false);
         stationCam.SetActive(false);
     }
 
@@ -36,7 +34,7 @@ public class WrappingStation : MonoBehaviour
         player.SetActive(false);
         playerCam.SetActive(false);
         stationCam.SetActive(true);
-        miniGame.SetActive(true);
+        gameObject.GetComponent<MazeMinigame>().SpawnMaze();
     }
 
     void WrapPresent(int b)
@@ -54,6 +52,6 @@ public class WrappingStation : MonoBehaviour
         player.SetActive(true);
         playerCam.SetActive(true);
         stationCam.SetActive(false);
-        miniGame.SetActive(false);
+        
     }
 }
