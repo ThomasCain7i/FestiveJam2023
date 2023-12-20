@@ -11,7 +11,7 @@ public class BlueprintClicker : MonoBehaviour
     [SerializeField] GameObject cam;
     [SerializeField] GameObject toyAssembler;
     [SerializeField] LayerMask blueprint;
-    [SerializeField] bool alreadyGotBlueprint;
+    public bool alreadyGotBlueprint;
     // Start is called before the first frame update
     void Start()
     {
