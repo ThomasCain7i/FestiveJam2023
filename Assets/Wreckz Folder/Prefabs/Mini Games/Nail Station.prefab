@@ -1464,11 +1464,12 @@ MonoBehaviour:
   timerHasStarted: 0
   gameHasStarted: 0
   gameIsPlaying: 0
+  gameIsWon: 0
   minigameManager: {fileID: 0}
   canvas: {fileID: 265983476348285418}
   interactText: {fileID: 265983476243914534}
   instructionText: {fileID: 265983474490476432}
-  winText: {fileID: 0}
+  winText: {fileID: 386014194}
   scoreText: {fileID: 265983475984090208}
   timerText: {fileID: 2061653784}
 --- !u!1 &265983475984090214

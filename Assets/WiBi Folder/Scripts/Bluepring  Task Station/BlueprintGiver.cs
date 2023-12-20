@@ -15,8 +15,8 @@ public class BlueprintGiver : MonoBehaviour
         if(b == 250)
         {
             // Code to randomly select a blueprint if players wish.
-            int r = Random.Range(0, blueprint.Length);
-            blueprint[r].SetActive(true);
+            int randomBlueprint = Random.Range(0, blueprint.Length);
+            blueprint[randomBlueprint].SetActive(true);
         }
         else if (b == 0)
         {

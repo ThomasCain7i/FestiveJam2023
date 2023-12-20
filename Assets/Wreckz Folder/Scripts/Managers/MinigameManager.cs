@@ -21,6 +21,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] float distanceNailStation;
     [SerializeField] float distanceToyAssembler;
     [SerializeField] float distanceWrapStation;
+    [SerializeField] float howFar;
 
     [Header("Canavs")]
     [SerializeField] GameObject canvasWoodStation;
@@ -50,7 +51,7 @@ public class MinigameManager : MonoBehaviour
         {
             distanceWoodStation = Vector3.Distance(woodStation.transform.position, player.transform.position);
 
-            if (distanceWoodStation <= 3)
+            if (distanceWoodStation <= howFar)
             {
                 // Sets canvas to be active, if player is within range
                 canvasWoodStation.SetActive(true);
@@ -72,7 +73,7 @@ public class MinigameManager : MonoBehaviour
             // Constantly getting the distance between, the toyAssembler gameObject and the player
             distanceToyAssembler = Vector3.Distance(toyAssembler.transform.position, player.transform.position);
 
-            if (distanceToyAssembler <= 3)
+            if (distanceToyAssembler <= howFar)
             {
                 // Sets canvas to be active, if player is within range
                 canvasToyAssembler.SetActive(true);
@@ -94,7 +95,7 @@ public class MinigameManager : MonoBehaviour
         {
             distanceNailStation = Vector3.Distance(nailStation.transform.position, player.transform.position);
 
-            if (distanceNailStation <= 3)
+            if (distanceNailStation <= howFar)
             {
                 // Sets canvas to be active, if player is within range
                 canvasNailStation.SetActive(true);
@@ -116,7 +117,7 @@ public class MinigameManager : MonoBehaviour
         {
             distanceWrapStation = Vector3.Distance(wrapStation.transform.position, player.transform.position);
 
-            if (distanceWrapStation <= 3)
+            if (distanceWrapStation <= howFar)
             {
                 // Sets canvas to be active, if player is within range
                 canvasWrapStation.SetActive(true);
