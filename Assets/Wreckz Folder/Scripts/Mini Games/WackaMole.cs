@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;  // Import TextMeshPro namespace
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WackaMole : MonoBehaviour
 {
@@ -14,6 +11,7 @@ public class WackaMole : MonoBehaviour
     [SerializeField] GameObject interactText;
     [SerializeField] GameObject instructionText, winText;
     [SerializeField] TextMeshProUGUI timerTextTMP;  // Change the variable type to TextMeshProUGUI
+    [SerializeField] TextMeshProUGUI rewardTextTMP;  // Change the variable type to TextMeshProUGUI
 
     [Header("Bools")]
     public bool gameHasStarted;
@@ -29,6 +27,7 @@ public class WackaMole : MonoBehaviour
 
     [Header("Reference")]
     [SerializeField] PlayerCam cam;
+    [SerializeField] Inventory inventory;
 
     // Update is called once per frame
     void Update()
@@ -149,6 +148,11 @@ public class WackaMole : MonoBehaviour
     // Initiates the win timer and sets up the win state
     void WinMiniGameTimer()
     {
+        int reward = Random.Range(1, 6);
+        rewardTextTMP.gameObject.SetActive(true);
+        rewardTextTMP.text = ("Gained ") + reward + ("Wool");
+        inventory.wool += reward;
+
         cam.sensX = cam.savedSensX;
         cam.sensY = cam.savedSensY;
 
@@ -179,6 +183,7 @@ public class WackaMole : MonoBehaviour
         timeLeft = timeLeftNormal;
         interactText.SetActive(true);
         canvasWackaMole.SetActive(false);
+        rewardTextTMP.gameObject.SetActive(false);
 
         Debug.Log("Won Fur Minigame");
     }
@@ -200,6 +205,8 @@ public class WackaMole : MonoBehaviour
         timerTextTMP.gameObject.SetActive(false); // Hide the timer text
         interactText.SetActive(true);
         instructionText.SetActive(false);
+        rewardTextTMP.gameObject.SetActive(false);
+
         Debug.Log("Lost Nail Minigame");
     }
 }
