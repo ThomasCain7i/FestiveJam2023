@@ -25,6 +25,5 @@ public class MazeMinigame : MonoBehaviour
         m.transform.position = spawn.transform.position;
         m.transform.rotation = spawn.transform.rotation;
         m.transform.parent = spawn.transform;
-        m.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
     }
 }

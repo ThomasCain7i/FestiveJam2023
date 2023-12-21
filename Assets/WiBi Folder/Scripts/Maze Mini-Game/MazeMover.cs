@@ -18,7 +18,7 @@ public class MazeMover : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("MazeHorizontal");
         verticalInput = Input.GetAxisRaw("MazeVertical");
-        Vector3 i = new Vector3(horizontalInput, 0, verticalInput);
+        Vector3 i = new Vector3(horizontalInput, verticalInput);
         i.Normalize();
 
         transform.Translate(i * speed * Time.deltaTime);

@@ -3031,7 +3031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576995332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.012, y: -0.046000004, z: -1.395}
+  m_LocalPosition: {x: -0.012000177, y: -0.046000004, z: -0.05699996}
   m_LocalScale: {x: 0.10000002, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3045,7 +3045,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576995332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -11068,7 +11068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 576995332}
   premadeMazes:
-  - {fileID: 4885595344384786424, guid: 84c5828cacde02f4f9260ae97c37376a, type: 3}
+  - {fileID: 8296841125104506828, guid: ac89cf61a8eb1e144b4b3fc07b989964, type: 3}
 --- !u!4 &267941369065523047
 Transform:
   m_ObjectHideFlags: 0
