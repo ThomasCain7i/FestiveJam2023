@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemBox : MonoBehaviour
 {
-    [SerializeField] GameObject grabArt;
+    [SerializeField] GameObject interactionCrosshair, normalCrosshair;
 
     [SerializeField] Inventory inventory;
 
@@ -14,7 +14,8 @@ public class ItemBox : MonoBehaviour
         {
             Debug.Log("Reach has entered");
 
-            grabArt.SetActive(true);
+            interactionCrosshair.SetActive(true);
+            normalCrosshair.SetActive(false);
 
             isInteractable = true;
         }
@@ -24,7 +25,8 @@ public class ItemBox : MonoBehaviour
     {
         if (other.gameObject.tag == "Reach")
         {
-            grabArt.SetActive(false);
+            interactionCrosshair.SetActive(false);
+            normalCrosshair.SetActive(true);
 
             isInteractable = false;
         }
