@@ -15,7 +15,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject nailStation;
     [SerializeField] GameObject toyAssembler;
     [SerializeField] GameObject wrapStation;
-    [SerializeField] GameObject furstation;
+    [SerializeField] GameObject clothstation;
 
     [Header("Distance")]
     [SerializeField] float distanceWoodStation;
@@ -32,10 +32,11 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject canvasWrapStation;
     [SerializeField] GameObject canvasFurStation;
 
+    [Header("Materials")]
+    [SerializeField] bool hasMatsBuild, hasMatsWrap;
 
-    [Header("Bool & Numbers")]
-    [SerializeField] int toyId;
-    [SerializeField] bool playerHasTheMaterials;
+    [Header("References")]
+    [SerializeField] Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +60,7 @@ public class MinigameManager : MonoBehaviour
                 // Sets canvas to be active, if player is within range
                 canvasWoodStation.SetActive(true);
                 // Allows the player to interact if the press E and have the materials.
-                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     woodStation.GetComponent<WoodCutting>().beginCutting = true;
                 }
@@ -81,7 +82,7 @@ public class MinigameManager : MonoBehaviour
                 // Sets canvas to be active, if player is within range
                 canvasToyAssembler.SetActive(true);
                 // Allows the player to interact if the press E and have the materials.
-                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                if (hasMatsBuild && Input.GetKeyDown(KeyCode.E))
                 {
                     // Sets bool to be true if the player has interacted with the table.
                     toyAssembler.GetComponent<ToyAssembly>().gameHasStarted = true;
@@ -103,7 +104,7 @@ public class MinigameManager : MonoBehaviour
                 // Sets canvas to be active, if player is within range
                 canvasNailStation.SetActive(true);
                 // Allows the player to interact if the press E and have the materials.
-                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                if (inventory.hasMetal && Input.GetKeyDown(KeyCode.E))
                 {
                     // Sets bool to be true if the player has interacted with the table.
                     nailStation.GetComponent<RapidPresser>().gameHasStarted = true;
@@ -125,7 +126,7 @@ public class MinigameManager : MonoBehaviour
                 // Sets canvas to be active, if player is within range
                 canvasWrapStation.SetActive(true);
                 // Allows the player to interact if the press E and have the materials.
-                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                if (hasMatsWrap && Input.GetKeyDown(KeyCode.E))
                 {
                     // Sets bool to be true if the player has interacted with the table.
                     wrapStation.GetComponent<WrappingStation>().BeginWrapping();
@@ -138,19 +139,19 @@ public class MinigameManager : MonoBehaviour
             }
         }
 
-        if (furstation != null)
+        if (clothstation != null)
         {
-            distanceFurStation = Vector3.Distance(furstation.transform.position, player.transform.position);
+            distanceFurStation = Vector3.Distance(clothstation.transform.position, player.transform.position);
 
             if (distanceFurStation <= howFar)
             {
                 // Sets canvas to be active, if player is within range
                 canvasFurStation.SetActive(true);
                 // Allows the player to interact if the press E and have the materials.
-                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                if (inventory.hasCloth && Input.GetKeyDown(KeyCode.E))
                 {
                     // Sets bool to be true if the player has interacted with the table.
-                    furstation.GetComponent<WackaMole>().gameHasStarted = true;
+                    clothstation.GetComponent<WackaMole>().gameHasStarted = true;
                 }
             }
             else
