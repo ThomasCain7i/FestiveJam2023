@@ -35,12 +35,21 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    [SerializeField] GameObject blueprintCanvas, inventoryCanvas;
+    [SerializeField] bool blueprintActive;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        blueprintCanvas.SetActive(true);
+        inventoryCanvas.SetActive(false);
+
+        blueprintActive = true;
     }
 
     private void Update()
@@ -56,6 +65,22 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (blueprintActive == true)
+            {
+                blueprintCanvas.SetActive(false);
+                inventoryCanvas.SetActive(true);
+                blueprintActive = false;
+            }
+            else
+            {
+                blueprintCanvas.SetActive(true);
+                inventoryCanvas.SetActive(false);
+                blueprintActive = true;
+            }
+        }
     }
 
     private void FixedUpdate()

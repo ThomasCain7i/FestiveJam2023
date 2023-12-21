@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public bool hasWood, hasMetal, hasCloth, hasPresent1, hasPresent2, hasPresent3;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool hasWood, hasMetal, hasCloth;
+    public int planks, nails, wool;
+    public TextMeshProUGUI woodText, metalText, clothText, planksText, nailsText, woolText;
 
     // Update is called once per frame
     void Update()
     {
-        
+        woodText.text = "Wood: (" + hasWood.ToString() + ")";
+        metalText.text = "Planks: (" + hasMetal.ToString() + ")";
+        clothText.text = "Planks: (" + hasCloth.ToString() + ")";
+        planksText.text = "Plank: (" + planks.ToString() + ")";
+        nailsText.text = "Nail: (" + nails.ToString() + ")";
+        woolText.text = "Wool: (" + wool.ToString() + ")";
     }
 }

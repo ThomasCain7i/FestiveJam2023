@@ -33,31 +33,6 @@ public class Workstation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInteractable)
-        {
-            if (inventory.hasPresent1 && Input.GetKey(KeyCode.E))
-            {
-                present1.SetActive(true);
-                present2.SetActive(false);
-                present3.SetActive(false);
-                inventory.hasPresent1 = false;
-            }
 
-            if (inventory.hasPresent2 && Input.GetKey(KeyCode.E))
-            {
-                present1.SetActive(false);
-                present2.SetActive(true);
-                present3.SetActive(false);
-                inventory.hasPresent2 = false;
-            }
-
-            if (inventory.hasPresent3 && Input.GetKey(KeyCode.E))
-            {
-                present1.SetActive(false);
-                present2.SetActive(false);
-                present3.SetActive(true);
-                inventory.hasPresent3 = false;
-            }
-        }
     }
 }
