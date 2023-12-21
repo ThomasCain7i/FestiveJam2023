@@ -12,10 +12,13 @@ public class WrappingStation : MonoBehaviour
     [SerializeField] GameObject playerCam;
     [SerializeField] GameObject stationCam;
 
+    [SerializeField] GameObject blueprintStation;
+    [SerializeField] GameObject spawn;
+
     [SerializeField] GameObject[] toys;
 
     [SerializeField] int blueprintId;
-    public bool toyPlaced;
+    public bool mazeDone;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,8 @@ public class WrappingStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        blueprintId = blueprintStation.GetComponent<BlueprintClicker>().blueprintId;
+        WrapPresent(blueprintId);
     }
 
     public void BeginWrapping()
@@ -39,10 +43,19 @@ public class WrappingStation : MonoBehaviour
 
     void WrapPresent(int b)
     {
-        if (toyPlaced)
+        if (mazeDone)
         {
+            //toys[b].SetActive(true);
+            Debug.Log("Start Wrapping");
+
+            // Move / Spawn toy into present box
             toys[b].SetActive(true);
-            // Insert the mini-game
+            toys[b].GetComponent<Animator>().SetBool("Place", true);
+
+            // Close Lid / Cover Box
+
+            // Allow player to pick up present
+
         }
     }
 
@@ -52,6 +65,5 @@ public class WrappingStation : MonoBehaviour
         player.SetActive(true);
         playerCam.SetActive(true);
         stationCam.SetActive(false);
-        
     }
 }

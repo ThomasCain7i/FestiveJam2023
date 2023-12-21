@@ -11,6 +11,7 @@ TagManager:
   - Wood
   - Nail
   - Blueprint
+  - WrapStation
   layers:
   - Default
   - TransparentFX

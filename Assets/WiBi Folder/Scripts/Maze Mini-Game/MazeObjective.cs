@@ -6,18 +6,15 @@ public class MazeObjective : MonoBehaviour
 {
     [Header("GameObjects & References")]
     [SerializeField] GameObject wrapStation;
-    [Header("Bools")] 
-    [SerializeField] bool wrappingStation;
+    [SerializeField] GameObject mazeObj;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") )
         {
-            if (wrappingStation)
-            {
-                wrapStation.SetActive(true);
-                //wrapStation.GetComponent<WrappingStation>().toyPlaced = true;
-                
-            }
+            wrapStation = GameObject.FindGameObjectWithTag("WrapStation");
+            wrapStation.GetComponent<WrappingStation>().mazeDone = true;
+
+            Destroy(mazeObj);
         }
     }
 }

@@ -12,6 +12,8 @@ public class BlueprintClicker : MonoBehaviour
     [SerializeField] GameObject toyAssembler;
     [SerializeField] LayerMask blueprint;
     public bool alreadyGotBlueprint;
+    public int blueprintId;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +42,11 @@ public class BlueprintClicker : MonoBehaviour
                     if (!alreadyGotBlueprint)
                     {
                         // Code to collect the blueprint id from the hit object.
-                        int b = hit.collider.gameObject.GetComponent<BlueprintID>().id;
+                        blueprintId = hit.collider.gameObject.GetComponent<BlueprintID>().id;
                         // Code to call the blueprint function within the blueprint giver script.
-                        gameObject.GetComponent<BlueprintGiver>().Blueprints(b);
+                        gameObject.GetComponent<BlueprintGiver>().Blueprints(blueprintId);
                         // Sends toy id to the toy assembler
-                        toyAssembler.GetComponent<ToyAssembly>().toyId = b;
+                        toyAssembler.GetComponent<ToyAssembly>().toyId = blueprintId;
                         // Sets the bool to be true, to prevent the code from happening again
                         // until the toy is done
                         alreadyGotBlueprint = true;
