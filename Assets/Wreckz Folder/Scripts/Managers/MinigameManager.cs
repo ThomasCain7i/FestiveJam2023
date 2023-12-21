@@ -15,12 +15,14 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject nailStation;
     [SerializeField] GameObject toyAssembler;
     [SerializeField] GameObject wrapStation;
+    [SerializeField] GameObject furstation;
 
     [Header("Distance")]
     [SerializeField] float distanceWoodStation;
     [SerializeField] float distanceNailStation;
     [SerializeField] float distanceToyAssembler;
     [SerializeField] float distanceWrapStation;
+    [SerializeField] float distanceFurStation;
     [SerializeField] float howFar;
 
     [Header("Canavs")]
@@ -28,6 +30,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject canvasNailStation;
     [SerializeField] GameObject canvasToyAssembler;
     [SerializeField] GameObject canvasWrapStation;
+    [SerializeField] GameObject canvasFurStation;
 
 
     [Header("Bool & Numbers")]
@@ -134,6 +137,27 @@ public class MinigameManager : MonoBehaviour
                 canvasWrapStation.SetActive(false);
             }
         }
-        
+
+        if (furstation != null)
+        {
+            distanceFurStation = Vector3.Distance(furstation.transform.position, player.transform.position);
+
+            if (distanceFurStation <= howFar)
+            {
+                // Sets canvas to be active, if player is within range
+                canvasFurStation.SetActive(true);
+                // Allows the player to interact if the press E and have the materials.
+                if (playerHasTheMaterials && Input.GetKeyDown(KeyCode.E))
+                {
+                    // Sets bool to be true if the player has interacted with the table.
+                    furstation.GetComponent<WackaMole>().gameHasStarted = true;
+                }
+            }
+            else
+            {
+                // Sets the canvas to be in active if the player is anything otehr than within range.
+                canvasFurStation.SetActive(false);
+            }
+        }
     }
 }

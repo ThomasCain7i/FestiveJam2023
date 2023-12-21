@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
-    [SerializeField] float sensX;
-    [SerializeField] float sensY;
+    public float sensX, savedSensX;
+    public float sensY, savedSensY;
 
     [SerializeField] Transform orientation;
 
@@ -15,6 +15,7 @@ public class PlayerCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        SaveSens();
     }
 
     // Update is called once per frame
@@ -30,5 +31,11 @@ public class PlayerCam : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    void SaveSens()
+    {
+        savedSensX = sensX;
+        savedSensY = sensY;
     }
 }
