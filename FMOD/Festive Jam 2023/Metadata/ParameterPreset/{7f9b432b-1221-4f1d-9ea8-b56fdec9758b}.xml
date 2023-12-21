@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{7f9b432b-1221-4f1d-9ea8-b56fdec9758b}">
+		<property name="name">
+			<value>nail button mash pitch</value>
+		</property>
+		<relationship name="folder">
+			<destination>{173271b2-be4e-4a7a-b43f-c246b338761f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d03750aa-de8f-46c5-8078-9583b5b4fb65}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d03750aa-de8f-46c5-8078-9583b5b4fb65}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

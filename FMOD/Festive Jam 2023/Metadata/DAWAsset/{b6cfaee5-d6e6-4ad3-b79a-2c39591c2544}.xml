@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DAWAsset" id="{b6cfaee5-d6e6-4ad3-b79a-2c39591c2544}">
+		<property name="assetPath">
+			<value>Festive Jam 2023.rpp.link/nail mash-001.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.22448979591836735</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{04b9b38e-7048-41fe-a026-1b0a6b588e4c}</destination>
+		</relationship>
+		<relationship name="project">
+			<destination>{6617545b-3279-4a31-bc24-598cddda55f0}</destination>
+		</relationship>
+	</object>
+</objects>
