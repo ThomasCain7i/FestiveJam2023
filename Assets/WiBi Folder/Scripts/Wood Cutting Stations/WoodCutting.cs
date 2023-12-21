@@ -7,18 +7,13 @@ public class WoodCutting : MonoBehaviour
     [Header("GameObjects & References")]
     [SerializeField] GameObject player;
     [SerializeField] GameObject wood;
-    [SerializeField] GameObject canvas;
     [Header("Bool & Numbers")]
     public bool beginCutting;
-    [SerializeField] float dist;
-    [SerializeField] bool playerHasWood;
     [SerializeField] float speed;
     private void Start()
     {
         // Collects the player object
         player = GameObject.FindGameObjectWithTag("Player");
-        // Sets canvas to be inactive
-        canvas.SetActive(false);
     }
     private void Update()
     {
