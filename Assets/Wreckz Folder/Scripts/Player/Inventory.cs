@@ -11,8 +11,8 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         woodText.text = "Wood: (" + hasWood.ToString() + ")";
-        metalText.text = "Planks: (" + hasMetal.ToString() + ")";
-        clothText.text = "Planks: (" + hasCloth.ToString() + ")";
+        metalText.text = "Metal: (" + hasMetal.ToString() + ")";
+        clothText.text = "Cloth: (" + hasCloth.ToString() + ")";
         planksText.text = "Plank: (" + planks.ToString() + ")";
         nailsText.text = "Nail: (" + nails.ToString() + ")";
         woolText.text = "Wool: (" + wool.ToString() + ")";

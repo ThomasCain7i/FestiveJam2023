@@ -9,14 +9,16 @@ public class RapidPresser : MonoBehaviour
     [SerializeField] float timer, winTimer;
     public bool timerHasStarted, gameHasStarted, gameIsPlaying, gameIsWon;
 
-    [Header("Game Manager")]
+    [Header("References")]
     [SerializeField] MinigameManager minigameManager;
+    [SerializeField] Inventory inventory;
 
     [Header("Canvas")]
     [SerializeField] GameObject canvas;
     [SerializeField] GameObject interactText, instructionText, winText;
     [SerializeField] TextMeshProUGUI scoreText; // Assuming scoreText is a TextMeshPro component
     [SerializeField] TextMeshProUGUI timerText; // Add this for the timer text
+    [SerializeField] TextMeshProUGUI rewardText; // Add this for the timer text
 
     // Start is called before the first frame update
     void Start()
@@ -100,13 +102,18 @@ public class RapidPresser : MonoBehaviour
 
     void WinMiniGameTimer()
     {
-        winTimer = 5;
-        winText.SetActive(true);
-        gameIsWon = true;
+        int reward = Random.Range(1, 6);
+        rewardText.gameObject.SetActive(true);
+        rewardText.text = ("Gained ") + reward + ("Nails");
+        inventory.nails += reward;
 
         scoreText.gameObject.SetActive(false);
         timerText.gameObject.SetActive(false); // Hide the timer text
         instructionText.SetActive(false);
+
+        winTimer = 5;
+        winText.SetActive(true);
+        gameIsWon = true;
     }
 
     void WinMiniGame()
@@ -119,6 +126,7 @@ public class RapidPresser : MonoBehaviour
         currentNumber = 0;
         timer = 5;
         interactText.SetActive(true);
+        rewardText.gameObject.SetActive(false);
 
         Debug.Log("Won Nail Minigame");
     }
@@ -134,6 +142,8 @@ public class RapidPresser : MonoBehaviour
         timerText.gameObject.SetActive(false); // Hide the timer text
         interactText.SetActive(true);
         instructionText.SetActive(false);
+        rewardText.gameObject.SetActive(false);
+
         Debug.Log("Lost Nail Minigame");
     }
 }
