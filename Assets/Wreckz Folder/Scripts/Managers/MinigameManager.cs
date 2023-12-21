@@ -43,6 +43,7 @@ public class MinigameManager : MonoBehaviour
     {
         // Gets the player gameobject, for ease of use.
         player = GameObject.FindGameObjectWithTag("Player");
+        inventory = player.GetComponent<Inventory>();
         // Sets canvas object to be inactive on start
         canvasNailStation.SetActive(false);
         canvasToyAssembler.SetActive(false);
