@@ -13,24 +13,24 @@ public class MinigameManager : MonoBehaviour
     [Header("MiniGames")]
     [SerializeField] GameObject woodStation;
     [SerializeField] GameObject nailStation;
+    [SerializeField] GameObject clothstation;
     [SerializeField] GameObject toyAssembler;
     [SerializeField] GameObject wrapStation;
-    [SerializeField] GameObject clothstation;
 
     [Header("Distance")]
     [SerializeField] float distanceWoodStation;
     [SerializeField] float distanceNailStation;
+    [SerializeField] float distanceClothStation;
     [SerializeField] float distanceToyAssembler;
     [SerializeField] float distanceWrapStation;
-    [SerializeField] float distanceFurStation;
     [SerializeField] float howFar;
 
     [Header("Canavs")]
     [SerializeField] GameObject canvasWoodStation;
     [SerializeField] GameObject canvasNailStation;
+    [SerializeField] GameObject canvasClothStation;
     [SerializeField] GameObject canvasToyAssembler;
     [SerializeField] GameObject canvasWrapStation;
-    [SerializeField] GameObject canvasFurStation;
 
     [Header("Materials")]
     [SerializeField] bool hasMatsBuild, hasMatsWrap;
@@ -72,6 +72,50 @@ public class MinigameManager : MonoBehaviour
             }
         }
 
+        if (nailStation != null)
+        {
+            distanceNailStation = Vector3.Distance(nailStation.transform.position, player.transform.position);
+
+            if (distanceNailStation <= howFar)
+            {
+                // Sets canvas to be active, if player is within range
+                canvasNailStation.SetActive(true);
+                // Allows the player to interact if the press E and have the materials.
+                if (inventory.hasMetal && Input.GetKeyDown(KeyCode.E))
+                {
+                    // Sets bool to be true if the player has interacted with the table.
+                    nailStation.GetComponent<RapidPresser>().gameHasStarted = true;
+                }
+            }
+            else
+            {
+                // Sets the canvas to be in active if the player is anything otehr than within range.
+                canvasNailStation.SetActive(false);
+            }
+        }
+
+        if (clothstation != null)
+        {
+            distanceClothStation = Vector3.Distance(clothstation.transform.position, player.transform.position);
+
+            if (distanceClothStation <= howFar)
+            {
+                // Sets canvas to be active, if player is within range
+                canvasClothStation.SetActive(true);
+                // Allows the player to interact if the press E and have the materials.
+                if (inventory.hasCloth && Input.GetKeyDown(KeyCode.E))
+                {
+                    // Sets bool to be true if the player has interacted with the table.
+                    clothstation.GetComponent<WackaMole>().gameHasStarted = true;
+                }
+            }
+            else
+            {
+                // Sets the canvas to be in active if the player is anything otehr than within range.
+                canvasClothStation.SetActive(false);
+            }
+        }
+
         if (toyAssembler != null)
         {
             // Constantly getting the distance between, the toyAssembler gameObject and the player
@@ -95,28 +139,6 @@ public class MinigameManager : MonoBehaviour
             }
         }
 
-        if (nailStation != null)
-        {
-            distanceNailStation = Vector3.Distance(nailStation.transform.position, player.transform.position);
-
-            if (distanceNailStation <= howFar)
-            {
-                // Sets canvas to be active, if player is within range
-                canvasNailStation.SetActive(true);
-                // Allows the player to interact if the press E and have the materials.
-                if (inventory.hasMetal && Input.GetKeyDown(KeyCode.E))
-                {
-                    // Sets bool to be true if the player has interacted with the table.
-                    nailStation.GetComponent<RapidPresser>().gameHasStarted = true;
-                }
-            }
-            else
-            {
-                // Sets the canvas to be in active if the player is anything otehr than within range.
-                canvasNailStation.SetActive(false);
-            }
-        }
-
         if (wrapStation != null)
         {
             distanceWrapStation = Vector3.Distance(wrapStation.transform.position, player.transform.position);
@@ -136,28 +158,6 @@ public class MinigameManager : MonoBehaviour
             {
                 // Sets the canvas to be in active if the player is anything otehr than within range.
                 canvasWrapStation.SetActive(false);
-            }
-        }
-
-        if (clothstation != null)
-        {
-            distanceFurStation = Vector3.Distance(clothstation.transform.position, player.transform.position);
-
-            if (distanceFurStation <= howFar)
-            {
-                // Sets canvas to be active, if player is within range
-                canvasFurStation.SetActive(true);
-                // Allows the player to interact if the press E and have the materials.
-                if (inventory.hasCloth && Input.GetKeyDown(KeyCode.E))
-                {
-                    // Sets bool to be true if the player has interacted with the table.
-                    clothstation.GetComponent<WackaMole>().gameHasStarted = true;
-                }
-            }
-            else
-            {
-                // Sets the canvas to be in active if the player is anything otehr than within range.
-                canvasFurStation.SetActive(false);
             }
         }
     }
