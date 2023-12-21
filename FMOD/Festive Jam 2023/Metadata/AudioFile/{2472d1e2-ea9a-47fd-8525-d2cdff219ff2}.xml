@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2472d1e2-ea9a-47fd-8525-d2cdff219ff2}">
+		<property name="assetPath">
+			<value>assembling station chime-004.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.90358276643990931</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{04b9b38e-7048-41fe-a026-1b0a6b588e4c}</destination>
+		</relationship>
+	</object>
+</objects>
