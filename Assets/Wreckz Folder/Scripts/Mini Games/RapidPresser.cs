@@ -104,7 +104,7 @@ public class RapidPresser : MonoBehaviour
     {
         int reward = Random.Range(1, 6);
         rewardText.gameObject.SetActive(true);
-        rewardText.text = ("Gained ") + reward + ("Nails");
+        rewardText.text = ("Gained ") + reward + (" Nails");
         inventory.nails += reward;
 
         scoreText.gameObject.SetActive(false);
@@ -118,6 +118,7 @@ public class RapidPresser : MonoBehaviour
 
     void WinMiniGame()
     {
+        inventory.hasMetal = false;
         winText.SetActive(false);
         gameHasStarted = false;
         timerHasStarted = false;

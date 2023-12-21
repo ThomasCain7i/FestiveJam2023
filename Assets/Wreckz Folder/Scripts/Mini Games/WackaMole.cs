@@ -36,8 +36,8 @@ public class WackaMole : MonoBehaviour
         if (gameHasStarted && !gameIsWon)
         {
             interactText.SetActive(false);
-            cam.sensX = 0;
-            cam.sensY = 0;
+            cam.sensX = 5;
+            cam.sensY = 5;
             timerTextTMP.gameObject.SetActive(true);
 
             if (!gameIsPlaying)
@@ -150,7 +150,7 @@ public class WackaMole : MonoBehaviour
     {
         int reward = Random.Range(1, 6);
         rewardTextTMP.gameObject.SetActive(true);
-        rewardTextTMP.text = ("Gained ") + reward + ("Wool");
+        rewardTextTMP.text = ("Gained ") + reward + (" Wool");
         inventory.wool += reward;
 
         cam.sensX = cam.savedSensX;
@@ -175,6 +175,7 @@ public class WackaMole : MonoBehaviour
     // Called when the win timer reaches 0 to complete the win state
     void WinMiniGame()
     {
+        inventory.hasCloth = false;
         winText.SetActive(false);
         gameHasStarted = false;
         gameIsPlaying = false;
