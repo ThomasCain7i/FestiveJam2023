@@ -41,6 +41,8 @@ public class BlueprintClicker : MonoBehaviour
                     // If statement to check if a blueprint hasn't already been assigned.
                     if (!alreadyGotBlueprint)
                     {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/blueprint pickup\r\n");
+
                         // Code to collect the blueprint id from the hit object.
                         blueprintId = hit.collider.gameObject.GetComponent<BlueprintID>().id;
                         // Code to call the blueprint function within the blueprint giver script.

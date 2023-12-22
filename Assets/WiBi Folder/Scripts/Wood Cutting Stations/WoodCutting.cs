@@ -10,6 +10,8 @@ public class WoodCutting : MonoBehaviour
     [SerializeField] int randomPitch, currentRound, maxRound, numberWrong, maxWrong;
     [SerializeField] GameObject highHoObject, normalHoObject, lowHoObject, canvasWoodCutter;
     [SerializeField] float timeBetweenRounds, gameIsWonTimer;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip audioClip;
 
     [Header("Bools")]
     public bool gameHasStarted;
@@ -80,20 +82,32 @@ public class WoodCutting : MonoBehaviour
 
                     if (randomPitch == 1 && !noisePlayed)
                     {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/ho-ho-ho");
                         // Play high pitched noise
+                        audioSource.pitch = 1.5f;
+                        audioSource.PlayOneShot(audioClip);
                         noisePlayed = true;
+                        Debug.Log("High Pitch Played");
                     }
 
                     if (randomPitch == 2 && !noisePlayed)
                     {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/ho-ho-ho");
                         // Play normal pitched noise
+                        audioSource.pitch = 1f;
+                        audioSource.PlayOneShot(audioClip);
                         noisePlayed = true;
+                        Debug.Log("Normal Pitch Played");
                     }
 
                     if (randomPitch == 3 && !noisePlayed)
                     {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/ho-ho-ho");
                         // Play low pitched noise
+                        audioSource.pitch = .5f;
+                        audioSource.PlayOneShot(audioClip);
                         noisePlayed = true;
+                        Debug.Log("Low Pitch Played");
                     }
                 }
             }
@@ -125,79 +139,88 @@ public class WoodCutting : MonoBehaviour
 
     public void HighPitchedHo()
     {
-        if (randomPitch == 1)
+        if (timeBetweenRounds <= 0)
         {
-            currentRound += 1;
-            roundInProgress = false;
-            timeBetweenRounds = 2;
-            correctText.SetActive(true);
-            instructionText.SetActive(false);
-            noisePlayed = false;
+            if (randomPitch == 1)
+            {
+                currentRound += 1;
+                roundInProgress = false;
+                timeBetweenRounds = 2;
+                correctText.SetActive(true);
+                instructionText.SetActive(false);
+                noisePlayed = false;
 
-            Debug.Log("HighPitchedCorrect");
-        }
-        else
-        {
-            numberWrong += 1;
-            roundInProgress = false;
-            timeBetweenRounds = 2;
-            wrongText.SetActive(true);
-            instructionText.SetActive(false);
-            noisePlayed = false;
+                Debug.Log("HighPitchedCorrect");
+            }
+            else
+            {
+                numberWrong += 1;
+                roundInProgress = false;
+                timeBetweenRounds = 2;
+                wrongText.SetActive(true);
+                instructionText.SetActive(false);
+                noisePlayed = false;
 
-            Debug.Log("HighPitchedWrong");
+                Debug.Log("HighPitchedWrong");
+            }
         }
     }
 
     public void NormalPitchedHo()
     {
-        if (randomPitch == 2)
+        if(timeBetweenRounds <= 0)
         {
-            currentRound += 1;
-            roundInProgress = false;
-            timeBetweenRounds = 2;
-            correctText.SetActive(true);
-            instructionText.SetActive(false);
-            noisePlayed = false;
+            if (randomPitch == 2)
+            {
+                currentRound += 1;
+                roundInProgress = false;
+                timeBetweenRounds = 2;
+                correctText.SetActive(true);
+                instructionText.SetActive(false);
+                noisePlayed = false;
 
-            Debug.Log("NormalPitchCorrect");
-        }
-        else
-        {
-            numberWrong += 1;
-            roundInProgress = false;
-            timeBetweenRounds = 2;
-            wrongText.SetActive(true);
-            instructionText.SetActive(false);
-            noisePlayed = false;
+                Debug.Log("NormalPitchCorrect");
+            }
+            else
+            {
+                numberWrong += 1;
+                roundInProgress = false;
+                timeBetweenRounds = 2;
+                wrongText.SetActive(true);
+                instructionText.SetActive(false);
+                noisePlayed = false;
 
-            Debug.Log("NormalPitchWrong");
+                Debug.Log("NormalPitchWrong");
+            }
         }
     }
 
     public void LowPitchedHo()
     {
-        if (randomPitch == 3)
+        if(timeBetweenRounds <= 0)
         {
-            currentRound += 1;
-            roundInProgress = false;
-            timeBetweenRounds = 2;
-            correctText.SetActive(true);
-            instructionText.SetActive(false);
-            noisePlayed = false;
+            if (randomPitch == 3)
+            {
+                currentRound += 1;
+                roundInProgress = false;
+                timeBetweenRounds = 2;
+                correctText.SetActive(true);
+                instructionText.SetActive(false);
+                noisePlayed = false;
 
-            Debug.Log("LowPitchCorrect");
-        }
-        else
-        {
-            numberWrong += 1;
-            roundInProgress = false;
-            timeBetweenRounds = 2;
-            wrongText.SetActive(true);
-            instructionText.SetActive(false);
-            noisePlayed = false;
+                Debug.Log("LowPitchCorrect");
+            }
+            else
+            {
+                numberWrong += 1;
+                roundInProgress = false;
+                timeBetweenRounds = 2;
+                wrongText.SetActive(true);
+                instructionText.SetActive(false);
+                noisePlayed = false;
 
-            Debug.Log("LowPitchWrong");
+                Debug.Log("LowPitchWrong");
+            }
         }
     }
 
@@ -211,9 +234,7 @@ public class WoodCutting : MonoBehaviour
         gameIsWonTimer = 5;
         gameIsWon = true;
         winText.SetActive(true);
-        highHoObject.SetActive(false);
-        normalHoObject.SetActive(false);
-        lowHoObject.SetActive(false);
+        canvasWoodCutter.SetActive(false);
         instructionText.SetActive(false);
         correctText.SetActive(false);
 
@@ -237,9 +258,10 @@ public class WoodCutting : MonoBehaviour
         gameIsWon = false;
         currentRound = 0;
         numberWrong = 0;
+        timeBetweenRounds = -1;
         interactText.SetActive(true);
-        canvasWoodCutter.SetActive(false);
         rewardTextTMP.gameObject.SetActive(false);
+        gameIsWonTimer = 5;
 
         Debug.Log("Won Wood Minigame");
     }
@@ -247,9 +269,6 @@ public class WoodCutting : MonoBehaviour
     void LoseMiniGame()
     {
         wrongText.SetActive(false);
-        highHoObject.SetActive(false);
-        normalHoObject.SetActive(false);
-        lowHoObject.SetActive(false);
         gameHasStarted = false;
         gameIsPlaying = false;
         currentRound = 0;
@@ -258,6 +277,9 @@ public class WoodCutting : MonoBehaviour
         interactText.SetActive(true);
         instructionText.SetActive(false);
         rewardTextTMP.gameObject.SetActive(false);
+        timeBetweenRounds = -1;
+        gameIsWonTimer = 5;
+        canvasWoodCutter.SetActive(false);
 
         Debug.Log("Lost Wood Minigame");
 
