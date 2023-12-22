@@ -61,9 +61,9 @@ public class MinigameManager : MonoBehaviour
                 // Sets canvas to be active, if player is within range
                 canvasWoodStation.SetActive(true);
                 // Allows the player to interact if the press E and have the materials.
-                if (Input.GetKeyDown(KeyCode.E))
+                if (inventory.hasWood && Input.GetKeyDown(KeyCode.E))
                 {
-                    woodStation.GetComponent<WoodCutting>().beginCutting = true;
+                    woodStation.GetComponent<WoodCutting>().gameHasStarted = true;
                 }
             }
             else

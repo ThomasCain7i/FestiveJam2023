@@ -209,5 +209,9 @@ public class WackaMole : MonoBehaviour
         rewardTextTMP.gameObject.SetActive(false);
 
         Debug.Log("Lost Nail Minigame");
+
+        // Unlock and hide the cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
