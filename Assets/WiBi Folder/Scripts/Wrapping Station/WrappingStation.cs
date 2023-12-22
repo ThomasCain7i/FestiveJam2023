@@ -15,6 +15,7 @@ public class WrappingStation : MonoBehaviour
     [SerializeField] GameObject blueprintStation;
     [SerializeField] GameObject spawn;
 
+    [SerializeField] GameObject lid;
     [SerializeField] GameObject[] toys;
 
     [SerializeField] int blueprintId;
@@ -51,9 +52,13 @@ public class WrappingStation : MonoBehaviour
             // Move / Spawn toy into present box
             toys[b].SetActive(true);
             toys[b].GetComponent<Animator>().SetBool("Place", true);
-
+            player.SetActive(true);
+            playerCam.SetActive(true);
+            stationCam.SetActive(false);
             // Close Lid / Cover Box
-
+            FMODUnity.RuntimeManager.PlayOneShot("event:/wrapping station\r\n");
+            lid.SetActive(true);
+            lid.GetComponent<Animator>().SetBool("Go", true);
             // Allow player to pick up present
 
         }

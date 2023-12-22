@@ -81,11 +81,13 @@ public class ToyAssembly : MonoBehaviour
         {
             if (Input.GetKeyDown(keyToBePressed))
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/assembly station chime\r\n");
                 keyToBePressed = codes[arrayPos];
                 arrayPos += 1;
                 toyChildren[toyArrayPos].SetActive(true);
                 toyArrayPos += 1;
                 canvas.GetComponent<ButtonSlider>().speed = 100;
+                FMODUnity.RuntimeManager.PlayOneShot("event:/assembling station\r\n");
                 if (arrayPos >= 4)
                 {
                     arrayPos = 0;
