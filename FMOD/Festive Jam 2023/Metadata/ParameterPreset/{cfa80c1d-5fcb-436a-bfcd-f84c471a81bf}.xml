@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{cfa80c1d-5fcb-436a-bfcd-f84c471a81bf}">
+		<property name="name">
+			<value>santa pitch</value>
+		</property>
+		<relationship name="folder">
+			<destination>{173271b2-be4e-4a7a-b43f-c246b338761f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ab4a02a2-7f1a-4caa-aec4-f75b5cab19c7}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ab4a02a2-7f1a-4caa-aec4-f75b5cab19c7}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
