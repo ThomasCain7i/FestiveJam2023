@@ -22,6 +22,6 @@ public class ToyDone : MonoBehaviour
     // Function to allow for a delay and run the movment code
     void Delay()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 }

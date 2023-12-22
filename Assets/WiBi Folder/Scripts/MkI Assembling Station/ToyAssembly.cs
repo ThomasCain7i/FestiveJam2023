@@ -21,6 +21,7 @@ public class ToyAssembly : MonoBehaviour
     [SerializeField] int toyParentChildCount;
     [SerializeField] int toyArrayPos;
     [SerializeField] GameObject[] toyChildren;
+    [SerializeField] bool hasShuffled;
 
     [Header("Input Variables")]
     [SerializeField] int arrayPos;
@@ -67,7 +68,6 @@ public class ToyAssembly : MonoBehaviour
                 // Code to assign children to object arrat
                 toyChildren[i] = toyParent.transform.GetChild(i).gameObject;
             }
-
             // Calling function to build the toy
             BuildToy();
         }
@@ -94,12 +94,11 @@ public class ToyAssembly : MonoBehaviour
                 if (toyArrayPos >= toyChildren.Length)
                 {
                     toyArrayPos = 0;
-                    ShuffleToy();
                     gameHasStarted = false;
-                    canvas.SetActive(false);
                     toyParent.GetComponent<ToyDone>().toyDone = true;
                     interactText.SetActive(true);
                     instrutionText.SetActive(false);
+                    interactionCanvas.SetActive(false);
                 }
             }
         }
