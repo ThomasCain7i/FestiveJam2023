@@ -9,6 +9,7 @@ public class BlueprintGiver : MonoBehaviour
 {
     [Header("Blueprint Canvas Objects")]
     [SerializeField] GameObject[] blueprint;
+    public bool train, bear;
     // Function called from another script which passes in the blueprint id. 
     public void Blueprints(int b)
     {
@@ -23,12 +24,14 @@ public class BlueprintGiver : MonoBehaviour
             // Give Train
             Debug.Log("Train Blueprint Given");
             blueprint[b].SetActive(true);
+            train = true;
         }
         else if (b == 1)
         {
             // Give Bear
             Debug.Log("Bear Blueprint Given");
             blueprint[b].SetActive(true);
+            bear = true;
         }
     }
 

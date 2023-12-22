@@ -36,8 +36,6 @@ public class WackaMole : MonoBehaviour
         if (gameHasStarted && !gameIsWon)
         {
             interactText.SetActive(false);
-            cam.sensX = 5;
-            cam.sensY = 5;
             timerTextTMP.gameObject.SetActive(true);
 
             if (!gameIsPlaying)
@@ -57,6 +55,13 @@ public class WackaMole : MonoBehaviour
             {
                 canvasWackaMole.SetActive(true);
 
+                cam.sensX = 5;
+                cam.sensY = 5;
+
+                // Lock and show the cursor
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+
                 // Update timers
                 timeBetweenMoles -= Time.deltaTime;
                 timeLeft -= Time.deltaTime;
@@ -69,10 +74,6 @@ public class WackaMole : MonoBehaviour
 
                 // Update timer text using TextMeshProUGUI
                 timerTextTMP.text = "Time: " + Mathf.RoundToInt(timeLeft).ToString();
-
-                // Lock and show the cursor
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
 
                 // Spawn a new mole after a certain time
                 if (timeBetweenMoles <= 0)
@@ -208,10 +209,10 @@ public class WackaMole : MonoBehaviour
         instructionText.SetActive(false);
         rewardTextTMP.gameObject.SetActive(false);
 
-        Debug.Log("Lost Nail Minigame");
-
         // Unlock and hide the cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        Debug.Log("Lost Nail Minigame");
     }
 }

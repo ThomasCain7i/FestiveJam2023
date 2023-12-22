@@ -645,7 +645,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261876790610683771}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -680,6 +680,7 @@ MonoBehaviour:
   toyParentChildCount: 0
   toyArrayPos: 0
   toyChildren: []
+  hasShuffled: 0
   arrayPos: 0
   codes: 6700000062000000630000006600000068000000
   keyToBePressed: 0
@@ -698,7 +699,6 @@ GameObject:
   - component: {fileID: 1261876790624603517}
   - component: {fileID: 1261876790624603516}
   - component: {fileID: 1261876790624603507}
-  - component: {fileID: 1261876790624603519}
   m_Layer: 0
   m_Name: Assembling Station
   m_TagString: Untagged
@@ -784,24 +784,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1261876790624603519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261876790624603505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a740969c3ab65b49a60719e02fbfd87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  canvas: {fileID: 8762780603232149050}
-  toyAssembler: {fileID: 1261876790610683771}
-  dist: 0
-  toySelected: 0
-  playerHasTheMaterials: 1
 --- !u!1 &1261876790730439938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +1884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToyTrain
       objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: 2d1f054147cfa6f4e8c81bc4e4ffb260, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.015
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d1f054147cfa6f4e8c81bc4e4ffb260, type: 3}
 --- !u!4 &7117932796435222948 stripped
@@ -1909,3 +1895,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2d1f054147cfa6f4e8c81bc4e4ffb260, type: 3}
   m_PrefabInstance: {fileID: 7299564612048041551}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7605500629497121566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d1f054147cfa6f4e8c81bc4e4ffb260, type: 3}
+  m_PrefabInstance: {fileID: 7299564612048041551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1038072675
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605500629497121566}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1038072676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605500629497121566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.05, z: 0.1}
+  m_Center: {x: 0, y: -0.005, z: 0}
+--- !u!114 &1038072674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605500629497121566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c1f6c7d228b99469b70e3f60a6f22c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toyDone: 0
+  speed: 2
