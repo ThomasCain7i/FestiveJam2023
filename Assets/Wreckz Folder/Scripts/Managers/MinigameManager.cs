@@ -33,7 +33,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject canvasWrapStation;
 
     [Header("Materials")]
-    [SerializeField] bool hasMatsBuild, hasMatsWrap;
+    public bool hasMatsBuild, hasMatsWrap;
 
     [Header("References")]
     [SerializeField] Inventory inventory;
