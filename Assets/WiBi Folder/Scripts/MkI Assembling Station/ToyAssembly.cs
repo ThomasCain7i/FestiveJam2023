@@ -30,6 +30,12 @@ public class ToyAssembly : MonoBehaviour
     [SerializeField] TMP_Text display;
     [SerializeField] GameObject instrutionText, interactText;
 
+    private FMOD.Studio.EventInstance bells;
+
+    private int max_steps;
+
+    private int FMOD_step;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +45,13 @@ public class ToyAssembly : MonoBehaviour
         ShuffleArray(); ShuffleToy();
         // Sets canvas to be inactive.
         canvas.SetActive(false);
+
+        bells = FMODUnity.RuntimeManager.CreateInstance("event:/assembling station chime");
+        bells.setParameterByName("assembly step", 0);
+
+        max_steps = toyChildren.Length;
+
+        FMOD_step = 0;
     }
 
     // Update is called once per frame
@@ -81,13 +94,18 @@ public class ToyAssembly : MonoBehaviour
         {
             if (Input.GetKeyDown(keyToBePressed))
             {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/assembly station chime\r\n");
+                //FMODUnity.RuntimeManager.PlayOneShot("event:/assembly station chime");
+                if(toyArrayPos >= max_steps - 6 && toyArrayPos < max_steps) {
+                    bells.start();
+                    FMOD_step++;
+                    bells.setParameterByName("assembly step", FMOD_step);
+                }
                 keyToBePressed = codes[arrayPos];
                 arrayPos += 1;
                 toyChildren[toyArrayPos].SetActive(true);
                 toyArrayPos += 1;
                 canvas.GetComponent<ButtonSlider>().speed = 100;
-                FMODUnity.RuntimeManager.PlayOneShot("event:/assembling station\r\n");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/assembling station");
                 if (arrayPos >= 4)
                 {
                     arrayPos = 0;
