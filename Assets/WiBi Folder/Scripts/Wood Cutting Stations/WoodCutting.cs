@@ -47,7 +47,7 @@ public class WoodCutting : MonoBehaviour
                 instructionText.SetActive(true);
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !gameIsWon)
             {
                 gameIsPlaying = true;
 
@@ -226,10 +226,12 @@ public class WoodCutting : MonoBehaviour
 
     void WinMiniGameTimer()
     {
+        gameHasStarted = false;
+
         int reward = Random.Range(1, 6);
         rewardTextTMP.gameObject.SetActive(true);
-        rewardTextTMP.text = ("Gained ") + reward + (" Wool");
-        inventory.wool += reward;
+        rewardTextTMP.text = ("Gained ") + reward + (" Planks");
+        inventory.planks += reward;
 
         gameIsWonTimer = 5;
         gameIsWon = true;

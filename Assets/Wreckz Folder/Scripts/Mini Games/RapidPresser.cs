@@ -74,12 +74,12 @@ public class RapidPresser : MonoBehaviour
                 {
                     WinMiniGameTimer();
                 }
-
-                if (currentNumber < numToWin && timer <= 0)
-                {
-                    LoseMiniGame();
-                }
             }
+        }
+
+        if (currentNumber < numToWin && timer <= 0)
+        {
+            LoseMiniGame();
         }
 
         if (gameIsWon)
