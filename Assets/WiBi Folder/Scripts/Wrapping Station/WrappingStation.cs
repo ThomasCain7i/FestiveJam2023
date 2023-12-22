@@ -58,17 +58,16 @@ public class WrappingStation : MonoBehaviour
             // Close Lid / Cover Box
             FMODUnity.RuntimeManager.PlayOneShot("event:/wrapping station\r\n");
             lid.SetActive(true);
-            lid.GetComponent<Animator>().SetBool("Go", true);
+            Invoke(nameof(WrapUpWrapping), 0.5f);
             // Allow player to pick up present
 
         }
     }
 
+
     // Function to finish using the wrapping station and reset the system
     public void WrapUpWrapping()
     {
-        player.SetActive(true);
-        playerCam.SetActive(true);
-        stationCam.SetActive(false);
+        lid.GetComponent<Animator>().SetBool("Go", true);
     }
 }
