@@ -12,11 +12,14 @@ public class SingletonAudioManager : MonoBehaviour
 
     // Singleton instance.
     public static SingletonAudioManager Instance = null;
+    private FMOD.Studio.EventInstance gameplay_music;
+
 
     // Initialize the singleton instance.
     private void Awake()
     {
-
+        gameplay_music = FMODUnity.RuntimeManager.CreateInstance("event:/festive gameplay tune");
+        gameplay_music.start();
 
         // If there is not already an instance of SoundManager, set it to this.
         if (Instance == null)
