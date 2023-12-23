@@ -68,7 +68,7 @@ public class RapidPresser : MonoBehaviour
             {
                 currentNumber += 1;
 
-                FMODUnity.RuntimeManager.PlayOneShot("event:/nail station\r\n");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/nail station");
 
                 if (currentNumber == numToWin && timer > 0)
                 {
