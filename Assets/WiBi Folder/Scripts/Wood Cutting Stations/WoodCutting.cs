@@ -85,7 +85,7 @@ public class WoodCutting : MonoBehaviour
 
                     if (randomPitch == 1 && !noisePlayed)
                     {
-                        santa.setParameterByName("santa pitch", 0);
+                        santa.setParameterByName("santa pitch", 3);
                         santa.start();
                         // Play high pitched noise
                         audioSource.pitch = 1.5f;
@@ -107,7 +107,7 @@ public class WoodCutting : MonoBehaviour
 
                     if (randomPitch == 3 && !noisePlayed)
                     {
-                        santa.setParameterByName("santa pitch", 2);
+                        santa.setParameterByName("santa pitch", -1);
                         santa.start();
                         // Play low pitched noise
                         audioSource.pitch = .5f;
