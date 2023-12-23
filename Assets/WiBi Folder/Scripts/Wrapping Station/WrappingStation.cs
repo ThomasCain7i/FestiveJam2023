@@ -82,6 +82,7 @@ public class WrappingStation : MonoBehaviour
         lid.GetComponent<Animator>().SetBool("Go", true);
         miniGameManager.GetComponent<MinigameManager>().hasMatsWrap = false;
         CheckAllThreeAreMade();
+        Invoke(nameof(ResetStationAndBlueprint), 0.8f);
     }
 
     void CheckAllThreeAreMade()
