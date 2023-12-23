@@ -101,10 +101,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (currentFootstepSounds.Length > 0)
             {
-                int randomIndex = Random.Range(0, currentFootstepSounds.Length);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/player footsteps");
+                /*int randomIndex = Random.Range(0, currentFootstepSounds.Length);
                 audioSource.transform.position = footstepAudioPosition.position;
                 audioSource.clip = currentFootstepSounds[randomIndex];
-                audioSource.Play();
+                audioSource.Play();*/
                 yield return new WaitForSeconds(footstepDelay);
             }
             else
