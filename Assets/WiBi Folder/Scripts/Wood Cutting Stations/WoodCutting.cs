@@ -29,10 +29,13 @@ public class WoodCutting : MonoBehaviour
     [SerializeField] Inventory inventory;
     [SerializeField] PlayerCam cam;
 
+    private FMOD.Studio.EventInstance santa;
+
 
     private void Start()
     {
         roundOne = true;
+        santa = FMODUnity.RuntimeManager.CreateInstance("event:/ho-ho-ho");
     }
 
     private void Update()
@@ -82,7 +85,8 @@ public class WoodCutting : MonoBehaviour
 
                     if (randomPitch == 1 && !noisePlayed)
                     {
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/ho-ho-ho");
+                        santa.setParameterByName("santa pitch", 0);
+                        santa.start();
                         // Play high pitched noise
                         audioSource.pitch = 1.5f;
                         audioSource.PlayOneShot(audioClip);
@@ -92,7 +96,8 @@ public class WoodCutting : MonoBehaviour
 
                     if (randomPitch == 2 && !noisePlayed)
                     {
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/ho-ho-ho");
+                        santa.setParameterByName("santa pitch", 1);
+                        santa.start();
                         // Play normal pitched noise
                         audioSource.pitch = 1f;
                         audioSource.PlayOneShot(audioClip);
@@ -102,7 +107,8 @@ public class WoodCutting : MonoBehaviour
 
                     if (randomPitch == 3 && !noisePlayed)
                     {
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/ho-ho-ho");
+                        santa.setParameterByName("santa pitch", 2);
+                        santa.start();
                         // Play low pitched noise
                         audioSource.pitch = .5f;
                         audioSource.PlayOneShot(audioClip);
