@@ -23877,25 +23877,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500114606}
   m_Mesh: {fileID: 4493585093827132993, guid: c63749c7ea47f8a47a0d1030a2515e2b, type: 3}
---- !u!1 &504366431 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9213364329961916950, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
-  m_PrefabInstance: {fileID: 432588444}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &504366435
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504366431}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4493585093827132993, guid: 98a8f32edc25a0d4d854cceeb0dae294, type: 3}
 --- !u!1 &507310132
 GameObject:
   m_ObjectHideFlags: 0
@@ -37325,6 +37306,14 @@ PrefabInstance:
       propertyPath: blueprint.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 84002227674429567, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 53.461098
+      objectReference: {fileID: 0}
+    - target: {fileID: 84002227674429567, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.444
+      objectReference: {fileID: 0}
     - target: {fileID: 2095519915436308980, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -37340,6 +37329,14 @@ PrefabInstance:
     - target: {fileID: 3072319109507706489, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
       propertyPath: id
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207911006952903328, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.844
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207911006952903328, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.463
       objectReference: {fileID: 0}
     - target: {fileID: 3312492833944713861, guid: f9215a68e34db96478874eb62a4707fa, type: 3}
       propertyPath: m_RootOrder
@@ -67357,6 +67354,9 @@ MonoBehaviour:
   blueprintCanvas: {fileID: 631209399}
   inventoryCanvas: {fileID: 776956265}
   blueprintActive: 1
+  woodFootstepSounds: []
+  footstepAudioPosition: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1469514531
 GameObject:
   m_ObjectHideFlags: 0
