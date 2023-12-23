@@ -52,7 +52,7 @@ public class PauseMenu : MonoBehaviour
     {
         //When you return to menu reset paused time
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
         Resume();
     }
 
