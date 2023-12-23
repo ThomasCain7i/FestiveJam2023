@@ -49,9 +49,11 @@ public class ToyAssembly : MonoBehaviour
         bells = FMODUnity.RuntimeManager.CreateInstance("event:/assembling station chime");
         bells.setParameterByName("assembly step", 0);
 
-        max_steps = toyChildren.Length;
+        //max_steps = toyChildren.Length;
 
         FMOD_step = 0;
+
+        max_steps = toyChildren.Length;
     }
 
     // Update is called once per frame
@@ -95,11 +97,11 @@ public class ToyAssembly : MonoBehaviour
             if (Input.GetKeyDown(keyToBePressed))
             {
                 //FMODUnity.RuntimeManager.PlayOneShot("event:/assembly station chime");
-                if(toyArrayPos >= max_steps - 6 && toyArrayPos < max_steps) {
+                /*if(toyArrayPos >= max_steps) {
                     bells.start();
                     FMOD_step++;
                     bells.setParameterByName("assembly step", FMOD_step);
-                }
+                }*/
                 keyToBePressed = codes[arrayPos];
                 arrayPos += 1;
                 toyChildren[toyArrayPos].SetActive(true);

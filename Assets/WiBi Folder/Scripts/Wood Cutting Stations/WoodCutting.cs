@@ -304,7 +304,7 @@ public class WoodCutting : MonoBehaviour
             wood.transform.position += new Vector3(0, 0, 0.5f * speed * Time.deltaTime);
 
             // Enable it so that audio plays when cutting
-            FMODUnity.RuntimeManager.PlayOneShot("event:/wood cutting saw\r\n");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/wood cutting saw");
         }
     }
 }
