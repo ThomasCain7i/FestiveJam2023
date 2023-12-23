@@ -20,11 +20,15 @@ public class WrappingStation : MonoBehaviour
 
     [SerializeField] int blueprintId;
     public bool mazeDone;
+
+    private int count;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         stationCam.SetActive(false);
+
+        count = 0;
     }
 
     // Update is called once per frame
@@ -56,7 +60,10 @@ public class WrappingStation : MonoBehaviour
             playerCam.SetActive(true);
             stationCam.SetActive(false);
             // Close Lid / Cover Box
-            FMODUnity.RuntimeManager.PlayOneShot("event:/wrapping station\r\n");
+            if(count == 0){
+                FMODUnity.RuntimeManager.PlayOneShot("event:/wrapping station");
+                count++;
+            }
             lid.SetActive(true);
             Invoke(nameof(WrapUpWrapping), 0.5f);
             // Allow player to pick up present
