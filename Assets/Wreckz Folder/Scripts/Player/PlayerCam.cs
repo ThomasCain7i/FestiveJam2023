@@ -11,12 +11,6 @@ public class PlayerCam : MonoBehaviour
     float yRotation;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        SaveSens();
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,7 +27,7 @@ public class PlayerCam : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
-    void SaveSens()
+    public void SaveSens()
     {
         savedSensX = sensX;
         savedSensY = sensY;
