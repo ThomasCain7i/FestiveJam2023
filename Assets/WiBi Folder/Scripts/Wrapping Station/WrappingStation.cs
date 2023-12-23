@@ -79,6 +79,7 @@ public class WrappingStation : MonoBehaviour
     // Function to finish using the wrapping station and reset the system
     public void WrapUpWrapping()
     {
+        mazeDone = false;
         lid.GetComponent<Animator>().SetBool("Go", true);
         miniGameManager.GetComponent<MinigameManager>().hasMatsWrap = false;
         CheckAllThreeAreMade();

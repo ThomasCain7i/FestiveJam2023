@@ -6,7 +6,7 @@ public class MazeMinigame : MonoBehaviour
 {
     [SerializeField] GameObject spawn;
     [SerializeField] GameObject[] premadeMazes;
-    [SerializeField] GameObject maze;
+    [SerializeField] GameObject maze, mazeLid;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +31,6 @@ public class MazeMinigame : MonoBehaviour
     public void DeleteMaze()
     {
         Destroy(maze);
+        mazeLid.SetActive(false);
     }
 }
