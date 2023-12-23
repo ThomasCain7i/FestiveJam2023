@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{8f506a49-ae44-4535-a5bc-7af728ef42b9}">
+		<property name="name">
+			<value>chime pitch</value>
+		</property>
+		<relationship name="folder">
+			<destination>{173271b2-be4e-4a7a-b43f-c246b338761f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c1ee1c08-56ee-4f15-8e97-a7a975a1b426}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c1ee1c08-56ee-4f15-8e97-a7a975a1b426}">
+		<property name="isHeld">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

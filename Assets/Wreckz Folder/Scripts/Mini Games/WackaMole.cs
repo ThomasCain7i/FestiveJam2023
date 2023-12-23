@@ -29,6 +29,10 @@ public class WackaMole : MonoBehaviour
     [SerializeField] PlayerCam cam;
     [SerializeField] Inventory inventory;
 
+   /* private FMOD.Studio.EventInstance chime;
+    chime = FMODUnity.RuntimeManager.CreateInstance("event:/assembling station chime");
+    float chime_pitch = 0.0;*/
+
     // Update is called once per frame
     void Update()
     {
@@ -139,11 +143,16 @@ public class WackaMole : MonoBehaviour
     // Called when one of the mole buttons is pressed
     public void PressedButton()
     {
+        /*chime.start();
+        chime_pitch = chime_pitch + 0.1;
+        chime.setParameterByName("chime pitch", );*/
+        FMODUnity.RuntimeManager.PlayOneShot("event:/assembling station chime");
         currentScore += 1;
         up.SetActive(false);
         down.SetActive(false);
         left.SetActive(false);
         right.SetActive(false);
+
     }
 
     // Initiates the win timer and sets up the win state
