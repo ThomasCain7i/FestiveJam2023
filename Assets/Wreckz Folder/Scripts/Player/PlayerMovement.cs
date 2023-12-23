@@ -1,15 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
     public float groundDrag;
-
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
@@ -46,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isWalking = false;
     private bool isFootstepCoroutineRunning = false;
     private AudioClip[] currentFootstepSounds;
-
 
     private void Start()
     {
@@ -90,6 +85,12 @@ public class PlayerMovement : MonoBehaviour
                 blueprintActive = true;
             }
         }
+
+        // Check if the player is walking to play footstep sounds
+        if (isWalking && !isFootstepCoroutineRunning && audioSource != null)
+        {
+            StartCoroutine(PlayFootstepSounds(0.5f)); // Adjust the delay as needed
+        }
     }
 
     IEnumerator PlayFootstepSounds(float footstepDelay)
@@ -125,8 +126,11 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        // Check if the player is walking
+        isWalking = (horizontalInput != 0 || verticalInput != 0);
+
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
 
@@ -142,11 +146,11 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on ground
-        if(grounded)
+        if (grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         // in air
-        else if(!grounded)
+        else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
     }
 
@@ -155,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         // limit velocity if needed
-        if(flatVel.magnitude > moveSpeed)
+        if (flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
@@ -169,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
+
     private void ResetJump()
     {
         readyToJump = true;
