@@ -146,13 +146,13 @@ public class WackaMole : MonoBehaviour
         /*chime.start();
         chime_pitch = chime_pitch + 0.1;
         chime.setParameterByName("chime pitch", );*/
-        FMODUnity.RuntimeManager.PlayOneShot("event:/assembling station chime");
+
         currentScore += 1;
         up.SetActive(false);
         down.SetActive(false);
         left.SetActive(false);
         right.SetActive(false);
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/assembling station chime");
     }
 
     // Initiates the win timer and sets up the win state

@@ -51,6 +51,8 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         //When you return to menu reset paused time
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
         Resume();

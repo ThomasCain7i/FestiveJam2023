@@ -7,6 +7,12 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu, creditsMenu, controlsMenu;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
     public void StartMenu()
     {
         mainMenu.SetActive(false);
