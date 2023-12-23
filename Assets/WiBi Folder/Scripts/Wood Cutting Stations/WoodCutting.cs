@@ -121,6 +121,7 @@ public class WoodCutting : MonoBehaviour
             if (currentRound == maxRound && !gameIsWon)
             {
                 WinMiniGameTimer();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/wood cutting saw");
             }
 
             if (numberWrong == maxWrong && gameIsPlaying)
@@ -310,7 +311,7 @@ public class WoodCutting : MonoBehaviour
             wood.transform.position += new Vector3(0, 0, 0.5f * speed * Time.deltaTime);
 
             // Enable it so that audio plays when cutting
-            FMODUnity.RuntimeManager.PlayOneShot("event:/wood cutting saw");
+            //FMODUnity.RuntimeManager.PlayOneShot("event:/wood cutting saw");
         }
     }
 }
