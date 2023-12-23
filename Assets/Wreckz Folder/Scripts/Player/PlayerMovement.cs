@@ -38,6 +38,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject blueprintCanvas, inventoryCanvas;
     [SerializeField] bool blueprintActive;
 
+    // Ground Sounds:
+    public AudioClip[] woodFootstepSounds;
+    public Transform footstepAudioPosition;
+    public AudioSource audioSource;
+
+    private bool isWalking = false;
+    private bool isFootstepCoroutineRunning = false;
+    private AudioClip[] currentFootstepSounds;
+
 
     private void Start()
     {
@@ -81,6 +90,29 @@ public class PlayerMovement : MonoBehaviour
                 blueprintActive = true;
             }
         }
+    }
+
+    IEnumerator PlayFootstepSounds(float footstepDelay)
+    {
+        isFootstepCoroutineRunning = true;
+
+        while (isWalking)
+        {
+            if (currentFootstepSounds.Length > 0)
+            {
+                int randomIndex = Random.Range(0, currentFootstepSounds.Length);
+                audioSource.transform.position = footstepAudioPosition.position;
+                audioSource.clip = currentFootstepSounds[randomIndex];
+                audioSource.Play();
+                yield return new WaitForSeconds(footstepDelay);
+            }
+            else
+            {
+                yield break;
+            }
+        }
+
+        isFootstepCoroutineRunning = false;
     }
 
     private void FixedUpdate()
