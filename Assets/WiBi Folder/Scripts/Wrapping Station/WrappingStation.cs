@@ -104,4 +104,15 @@ public class WrappingStation : MonoBehaviour
             gameManager.GetComponent<Gamemanager>().builtAll3 = true;
         }
     }
+
+    private void ResetStationAndBlueprint()
+    {
+        for(int i = 0; i < toys.Length; i++)
+        {
+            toys[i].SetActive(false);
+        }
+        gameObject.GetComponent<MazeMinigame>().DeleteMaze();
+        blueprintStation.GetComponent<BlueprintClicker>().alreadyGotBlueprint = false;
+        blueprintStation.GetComponent<BlueprintGiver>().DoneBlueprint();
+    }
 }
