@@ -51,12 +51,17 @@ public class Inventory : MonoBehaviour
 
         if (blueprintGiver != null && minigameManager != null)
         {
-            if (blueprintGiver.train && planks >= 2 && nails >= 5)
+            if (blueprintGiver.train && planks >= 3 && nails >= 5)
             {
                 minigameManager.hasMatsBuild = true;
             }
 
-            if (blueprintGiver.bear && wool >= 5)
+            if (blueprintGiver.chess && planks >= 6)
+            {
+                minigameManager.hasMatsBuild = true;
+            }
+
+            if (blueprintGiver.robot && nails >= 3 && planks >= 1 && wool >= 2)
             {
                 minigameManager.hasMatsBuild = true;
             }
