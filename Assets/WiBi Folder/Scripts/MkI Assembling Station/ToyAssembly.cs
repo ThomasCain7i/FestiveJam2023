@@ -12,6 +12,7 @@ public class ToyAssembly : MonoBehaviour
     [Header("Script Variables")]
     [SerializeField] Slider assembleSlider;
     [SerializeField] GameObject canvas, interactionCanvas;
+    [SerializeField] GameObject blueprintStation;
     public bool gameHasStarted;
     public int toyId;
 
@@ -30,6 +31,11 @@ public class ToyAssembly : MonoBehaviour
     [SerializeField] TMP_Text display;
     [SerializeField] GameObject instrutionText, interactText;
 
+    [Header("Toy Built Variables")]
+    [SerializeField] GameObject player;
+    [SerializeField] Inventory inventory;
+    [SerializeField] GameObject miniGameManager;
+
     private FMOD.Studio.EventInstance bells;
 
     private int max_steps;
@@ -39,6 +45,8 @@ public class ToyAssembly : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        inventory = player.GetComponent<Inventory>();
         // Setting the key pressed to be R
         keyToBePressed = KeyCode.R;
         // Shuffling Arrays
@@ -59,6 +67,7 @@ public class ToyAssembly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        toyId = blueprintStation.GetComponent<BlueprintClicker>().blueprintId;
         // If ready to assemble
         if (gameHasStarted)
         {
@@ -121,6 +130,7 @@ public class ToyAssembly : MonoBehaviour
                     interactText.SetActive(true);
                     instrutionText.SetActive(false);
                     interactionCanvas.SetActive(false);
+                    ToyBuilt();
                 }
             }
         }
@@ -154,6 +164,28 @@ public class ToyAssembly : MonoBehaviour
             int r = Random.Range(t, toyChildren.Length);
             toyChildren[t] = toyChildren[r];
             toyChildren[r] = tmp;
+        }
+    }
+
+    void ToyBuilt()
+    {
+        miniGameManager.GetComponent<MinigameManager>().hasMatsBuild = false;
+        miniGameManager.GetComponent<MinigameManager>().hasMatsWrap = true;
+
+        if(toyId == 0)
+        {
+            inventory.planks -= 3;
+            inventory.nails -= 5;
+        }
+        else if (toyId == 1)
+        {
+            inventory.planks -= 6;
+        }
+        else if (toyId == 2)
+        {
+            inventory.nails -= 3;
+            inventory.hasWood = false;
+            inventory.wool -= 2;
         }
     }
 }

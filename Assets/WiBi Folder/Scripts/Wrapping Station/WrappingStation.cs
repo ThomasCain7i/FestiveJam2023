@@ -12,6 +12,7 @@ public class WrappingStation : MonoBehaviour
     [SerializeField] GameObject playerCam;
     [SerializeField] GameObject stationCam;
 
+    [SerializeField] GameObject miniGameManager;
     [SerializeField] GameObject blueprintStation;
     [SerializeField] GameObject spawn;
 
@@ -20,6 +21,8 @@ public class WrappingStation : MonoBehaviour
 
     [SerializeField] int blueprintId;
     public bool mazeDone;
+
+    [SerializeField] int builtTrain, builtChess, builtRobot;
 
     private int count;
     // Start is called before the first frame update
@@ -76,5 +79,28 @@ public class WrappingStation : MonoBehaviour
     public void WrapUpWrapping()
     {
         lid.GetComponent<Animator>().SetBool("Go", true);
+        miniGameManager.GetComponent<MinigameManager>().hasMatsWrap = false;
+        CheckAllThreeAreMade();
+    }
+
+    void CheckAllThreeAreMade()
+    {
+        if(blueprintId == 0)
+        {
+            builtTrain++;
+        }
+        else if (blueprintId == 1)
+        {
+            builtChess++;
+        }
+        else if(blueprintId == 2)
+        {
+            builtRobot++;
+        }
+
+        if(builtTrain >= 1 && builtChess >= 1 && builtRobot >= 1)
+        {
+
+        }
     }
 }

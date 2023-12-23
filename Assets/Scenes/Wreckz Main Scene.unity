@@ -12017,7 +12017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -65}
+  m_AnchoredPosition: {x: 0, y: -87.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &230425448
@@ -12043,7 +12043,7 @@ MonoBehaviour:
   m_text: Wood (1)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 29995bccb34810042beaf4cd032744a5, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 6419570736410809698, guid: 29995bccb34810042beaf4cd032744a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23335,7 +23335,7 @@ MonoBehaviour:
   m_text: Nails (3)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 29995bccb34810042beaf4cd032744a5, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 6419570736410809698, guid: 29995bccb34810042beaf4cd032744a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -44097,6 +44097,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 148911520}
     - target: {fileID: 5809448023872367983, guid: 1cecc319d850ecb47ba05d130aca61d9, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 1682862753}
+    - target: {fileID: 5809448023872367983, guid: 1cecc319d850ecb47ba05d130aca61d9, type: 3}
       propertyPath: blueprintStation
       value: 
       objectReference: {fileID: 11343481}
@@ -62310,6 +62314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   playerMovement: {fileID: 1838802873}
+  builtAll3: 0
 --- !u!4 &1311743931
 Transform:
   m_ObjectHideFlags: 0
@@ -65753,7 +65758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -65}
+  m_AnchoredPosition: {x: 0, y: -113.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1387856607
@@ -65779,7 +65784,7 @@ MonoBehaviour:
   m_text: Wool (2)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 29995bccb34810042beaf4cd032744a5, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 6419570736410809698, guid: 29995bccb34810042beaf4cd032744a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -91803,7 +91808,7 @@ MonoBehaviour:
   m_text: Toy Robot
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 29995bccb34810042beaf4cd032744a5, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 6419570736410809698, guid: 29995bccb34810042beaf4cd032744a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -96767,6 +96772,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1261876790610683751, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 1682862753}
+    - target: {fileID: 1261876790610683751, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
+      propertyPath: blueprintStation
+      value: 
+      objectReference: {fileID: 11343481}
     - target: {fileID: 1261876790610683771, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
       propertyPath: m_Name
       value: Mki Assembling Station
@@ -96777,7 +96790,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1261876790783669588, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.203
+      value: 1.326
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145251669545852509, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
+      propertyPath: m_TagString
+      value: Toy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6119008415623260781, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605500629497121566, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
+      propertyPath: m_TagString
+      value: Toy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728802669837721107, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
+      propertyPath: m_TagString
+      value: Toy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
@@ -97137,6 +97166,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e2b1af166b66644b1ee5e73fe2a182, type: 3}
+--- !u!1 &2003749489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8728802669837721107, guid: 09c9c6bbf97eb964f9f2a8144a2efea2, type: 3}
+  m_PrefabInstance: {fileID: 2000210384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2003749492
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003749489}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2007150696
 GameObject:
   m_ObjectHideFlags: 0
